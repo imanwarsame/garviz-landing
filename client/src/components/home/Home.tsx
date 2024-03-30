@@ -1,6 +1,7 @@
 import { Box } from '@mui/material';
 import { motion } from 'framer-motion';
 import Landing from '../landing/Landing';
+import Planet from '../planet/Planet';
 
 export default function Home() {
 	return (
@@ -20,6 +21,7 @@ export default function Home() {
 				overflow: 'hidden',
 			}}
 		>
+			<Planet />
 			<Landing />
 		</Box>
 	);
