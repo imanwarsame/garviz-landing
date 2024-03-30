@@ -1,18 +1,14 @@
 import { motion } from 'framer-motion';
+import { scroller } from 'react-scroll';
 import { useState } from 'react';
-import { AppBar, Stack, Toolbar, useTheme } from '@mui/material';
-import NavBody from './NavBody';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { AppBar, Stack, Toolbar, Typography, useTheme } from '@mui/material';
+import NavBody from './NavBody';
 import DarkModeToggle from '../darkmode/DarkModeToggle';
 import MenuButton from './MenuButton';
-import { useDevStore } from '../../store';
-import { scroller } from 'react-scroll';
-import LogoLight from '../../assets/logo_light_mode.png';
-import LogoDark from '../../assets/logo_dark_mode.png';
 
 export default function MobileNavbar() {
 	const theme = useTheme();
-	const { darkMode } = useDevStore();
 	const [selectedLink, setSelectedLink] = useState({ isActive: false, index: 0 });
 	const [isOpen, setOpen] = useState(false);
 	const navigate = useNavigate();
@@ -80,12 +76,9 @@ export default function MobileNavbar() {
 						justifyContent: 'space-between',
 					}}
 				>
-					<img
-						src={darkMode ? LogoDark : LogoLight}
-						height={50}
-						width={50}
-						style={{ top: 5, cursor: 'pointer' }}
-						aria-label='IW-letters-logo'
+					<Typography
+						fontWeight='bold'
+						variant='h6'
 						onClick={() => {
 							if (currentLocation !== '/') {
 								handleRouteChange('/');
@@ -93,7 +86,9 @@ export default function MobileNavbar() {
 								scrollToElement('home_element');
 							}
 						}}
-					/>
+					>
+						GARVIZ.
+					</Typography>
 					<Stack direction='row' spacing={1} sx={{ display: 'flex', alignItems: 'center' }}>
 						<DarkModeToggle />
 						<MenuButton

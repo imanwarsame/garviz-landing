@@ -95,7 +95,22 @@ export default function Navbar() {
 					justifyContent: 'space-between',
 				}}
 			>
-				<Typography fontWeight='bold' variant='h4'>
+				<Typography
+					fontWeight='bold'
+					variant='h4'
+					sx={{
+						'&:hover': {
+							cursor: 'pointer', //Change cursor to pointer on hover
+						},
+					}}
+					onClick={() => {
+						if (currentLocation !== '/') {
+							handleRouteChange('/');
+						} else {
+							scrollToElement('home_element');
+						}
+					}}
+				>
 					GARVIZ.
 				</Typography>
 				<NavigationLinks links={links} />
