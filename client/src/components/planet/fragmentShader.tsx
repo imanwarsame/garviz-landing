@@ -111,7 +111,7 @@ void main() {
                 clamp(length(r.x),0.0,1.0));
 
 
-  vec4 f_colorfrag = vec4(f_color,1.0);
+  vec4 f_colorfrag = vec4(f_color*3.0,1.0);
   gl_FragColor = f_colorfrag;
 }
 
