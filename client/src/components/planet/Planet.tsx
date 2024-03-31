@@ -19,13 +19,12 @@ export default function Planet() {
 					opacity: 0.9,
 				}}
 			>
-				<Canvas camera={{ position: [0, 0, 15] }} resize={{ scroll: false }}>
+				<Canvas camera={{ position: [0, 0, 20] }} resize={{ scroll: false }}>
 					<OrbitControls />
-					{/* <axesHelper args={[10]} /> */}
+					<axesHelper args={[10]} />
 					{/* {import.meta.env.DEV && <Perf position='bottom-right' />} */}
-					<ambientLight intensity={Math.PI / 2} />
-					<spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} decay={0} intensity={Math.PI} />
-					<pointLight position={[-10, -10, -10]} decay={0} intensity={Math.PI} />
+					{/* <ambientLight intensity={2} /> */}
+					{/* <directionalLight position={[3, 0.0, 0.0]} intensity={50} /> */}
 					<NoiseSphere position={[0, 0, 0]} />
 				</Canvas>
 				<Landing />

@@ -36,7 +36,7 @@ export default function NoiseSphere({ frequency = 1.0, ...props }: NoiseSpherePr
 	useFrame((state) => {
 		const { clock } = state;
 		if (sphereRef.current && material && material.uniforms) {
-			material.uniforms.uTime.value = frequency * clock.getElapsedTime();
+			material.uniforms.u_time.value = frequency * clock.getElapsedTime();
 
 			// //Leva version
 			// material.uniforms.uTime.value = levaFrequency * clock.getElapsedTime();
@@ -45,21 +45,21 @@ export default function NoiseSphere({ frequency = 1.0, ...props }: NoiseSpherePr
 
 	/* Adjust the position of the sphere based on the screen size. */
 	useEffect(() => {
-		if (isSmallScreen) {
-			sphereRef.current.position.x = 12;
-			sphereRef.current.position.y = 0;
-		} else if (isMediumScreen) {
-			sphereRef.current.position.x = 8;
-			sphereRef.current.position.y = 0;
-		} else {
-			sphereRef.current.position.x = 12;
-			sphereRef.current.position.y = 0;
-		}
+		// if (isSmallScreen) {
+		// 	sphereRef.current.position.x = 12;
+		// 	sphereRef.current.position.y = 0;
+		// } else if (isMediumScreen) {
+		// 	sphereRef.current.position.x = 8;
+		// 	sphereRef.current.position.y = 0;
+		// } else {
+		// 	sphereRef.current.position.x = 12;
+		// 	sphereRef.current.position.y = 0;
+		// }
 	}, [isSmallScreen, isMediumScreen]);
 
 	return (
 		<mesh {...props} ref={sphereRef}>
-			<icosahedronGeometry attach='geometry' args={[12, 12]} />
+			<icosahedronGeometry attach='geometry' args={[2, 12]} />
 			<primitive object={material} attach='material' />
 		</mesh>
 	);

@@ -1,63 +1,118 @@
 export const fragmentShader = `
-#define PI 3.1415926535897932384626433832795
+uniform float u_time;
+uniform float u_lacunarity;
+uniform float u_gain;
+uniform vec3 u_colorA;
+uniform vec3 u_colorB;
+uniform vec3 u_cloudTint;
 
-uniform vec3 uColor;
-uniform int uOctaves;
+varying vec2 v_Uv;
 
-varying vec2 vUv;
-varying float vTime;
-
-float rand(vec2 n) { 
-	return fract(sin(dot(n, vec2(12.9898, 4.1414))) * 43758.5453);
-}
-
-float noise(vec2 p){
-	vec2 ip = floor(p);
-	vec2 u = fract(p);
-	u = u*u*(3.0-2.0*u);
-	
-	float res = mix(
-		mix(rand(ip),rand(ip+vec2(1.0,0.0)),u.x),
-		mix(rand(ip+vec2(0.0,1.0)),rand(ip+vec2(1.0,1.0)),u.x),u.y);
-	return res*res;
-}
-
-float fbm(vec2 x) {
-	float v = 0.0;
-	float a = 0.5;
-	vec2 shift = vec2(100);
-	// Rotate to reduce axial bias
-    mat2 rot = mat2(cos(0.5), sin(0.5), -sin(0.5), cos(0.50));
-	for (int i = 0; i < uOctaves; ++i) {
-		v += a * noise(x);
-		x = rot * x * 2.0 + shift;
-		a *= 0.5;
-	}
-	return v;
-}
-
-float pattern( in vec2 p )
+vec4 mod289(vec4 x)
 {
-    vec2 q = vec2( fbm( p + vec2(0.0,0.0) ),
-                   fbm( p + vec2(5.2,1.3) ) );
-
-    vec2 r = vec2( fbm( p + 4.0*q + vec2(1.7,9.2) ),
-                   fbm( p + 4.0*q + vec2(8.3,2.8) ) );
-
-    float time = vTime / 10.0;
-
-    return fbm( (p + 4.0*r) + time );
+  return x - floor(x * (1.0 / 289.0)) * 289.0;
 }
 
-void main()
+vec4 permute(vec4 x)
 {
-	vec4 on = vec4(0.0);
-    float color = pattern(vUv);
-	vec3 finalColor = mix( vec3(0.3,0.1,0.4), vec3(0.3,0.05,0.05), vec3(0.13, 1, 0.15) );
-	finalColor = mix( finalColor, vec3(0.9,0.9,0.9), dot(color, pow(2.0, vUv.y)) );
-	finalColor = mix( finalColor, vec3(0.0,0.2,0.4), 2.0 );
-	finalColor = clamp( finalColor*1.0*5.0, 0.0, 2.0 );
-    
-    gl_FragColor = vec4(finalColor, 1.0);
+  return mod289(((x*34.0)+1.0)*x);
 }
+
+vec4 taylorInvSqrt(vec4 r)
+{
+  return 1.79284291400159 - 0.85373472095314 * r;
+}
+
+vec2 fade(vec2 t) {
+  return t*t*t*(t*(t*6.0-15.0)+10.0);
+}
+
+// Classic Perlin noise
+float cnoise(vec2 P)
+{
+  vec4 Pi = floor(P.xyxy) + vec4(0.0, 0.0, 1.0, 1.0);
+  vec4 Pf = fract(P.xyxy) - vec4(0.0, 0.0, 1.0, 1.0);
+  Pi = mod289(Pi); // To avoid truncation effects in permutation
+  vec4 ix = Pi.xzxz;
+  vec4 iy = Pi.yyww;
+  vec4 fx = Pf.xzxz;
+  vec4 fy = Pf.yyww;
+
+  vec4 i = permute(permute(ix) + iy);
+
+  vec4 gx = fract(i * (1.0 / 41.0)) * 2.0 - 1.0 ;
+  vec4 gy = abs(gx) - 0.5 ;
+  vec4 tx = floor(gx + 0.5);
+  gx = gx - tx;
+
+  vec2 g00 = vec2(gx.x,gy.x);
+  vec2 g10 = vec2(gx.y,gy.y);
+  vec2 g01 = vec2(gx.z,gy.z);
+  vec2 g11 = vec2(gx.w,gy.w);
+
+  vec4 norm = taylorInvSqrt(vec4(dot(g00, g00), dot(g01, g01), dot(g10, g10), dot(g11, g11)));
+  g00 *= norm.x;
+  g01 *= norm.y;
+  g10 *= norm.z;
+  g11 *= norm.w;
+
+  float n00 = dot(g00, vec2(fx.x, fy.x));
+  float n10 = dot(g10, vec2(fx.y, fy.y));
+  float n01 = dot(g01, vec2(fx.z, fy.z));
+  float n11 = dot(g11, vec2(fx.w, fy.w));
+
+  vec2 fade_xy = fade(Pf.xy);
+  vec2 n_x = mix(vec2(n00, n01), vec2(n10, n11), fade_xy.x);
+  float n_xy = mix(n_x.x, n_x.y, fade_xy.y);
+  return 2.3 * n_xy;
+}
+
+float fbm(vec2 st) {
+  const int OCTAVES = 5;
+  // Initial values
+  float value = 0.0;
+  float amplitude = 0.6;
+  // float frequency = 0.5;
+  // Loop of octaves
+  for (int i = 0; i < OCTAVES; i++) {
+    value += amplitude * abs(cnoise(st));
+    st *= u_lacunarity;
+    amplitude *= u_gain;
+  }
+  return value;
+}
+
+void main() {
+  vec3 f_color = vec3(0.0);
+  vec2 st = v_Uv * 0.250;
+  float speed = 0.1;
+  float f_time = u_time * speed;
+
+  vec2 q = vec2(0.);
+  q.x = fbm( st + 0.00 * f_time);
+  q.y = fbm( st + vec2(1.0));
+
+  vec2 r = vec2(0.);
+  r.x = fbm( st + 1.0 * q + vec2(1.7,9.2)+ 0.15 * f_time );
+  r.y = fbm( st + 1.0 * q + vec2(8.3,2.8)+ 0.126 * f_time);
+
+  float f = fbm(st+r);
+
+  f_color = mix(u_colorA,
+                u_colorB,
+                clamp((f*f)*4.0,0.0,1.0));
+
+  f_color = mix(f_color,
+                u_cloudTint,
+                clamp(length(q),0.0,1.0));
+
+  f_color *= mix(f_color,
+                u_colorA,
+                clamp(length(r.x),0.0,1.0));
+
+
+  vec4 f_colorfrag = vec4(f_color,1.0);
+  gl_FragColor = f_colorfrag;
+}
+
 `;

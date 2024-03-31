@@ -2,7 +2,7 @@ export const vertexShader = `
 uniform float uTime;
 uniform vec3 uColor;
 
-varying vec2 vUv;
+varying vec2 v_Uv;
 varying float vTime;
 
 void main()
@@ -10,6 +10,6 @@ void main()
     gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
 
     vTime = uTime;
-    vUv = uv;
+    v_Uv = uv;
 }
 `;
