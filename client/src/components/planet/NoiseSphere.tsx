@@ -1,4 +1,4 @@
-import { MeshProps, useFrame } from '@react-three/fiber';
+import { GroupProps, MeshProps, useFrame } from '@react-three/fiber';
 // import { useControls } from 'leva';
 import { useRef, useMemo, useEffect } from 'react';
 import * as THREE from 'three';
@@ -8,15 +8,10 @@ import { useDevStore } from '../../store';
 
 interface NoiseSphereProps extends MeshProps {
 	frequency?: number;
-	amplitude?: number;
-	speed?: number;
-	density?: number;
-	strength?: number;
-	intensity?: number;
 }
 
-export default function NoiseSphere({ frequency = 1.0, ...props }: NoiseSphereProps) {
-	const sphereRef = useRef<THREE.Mesh>(null!);
+export default function NoiseSphere({ frequency = 1.0, ...props }: NoiseSphereProps & GroupProps) {
+	const sphereRef = useRef<THREE.Points>(null!);
 	const theme = useTheme();
 	const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
 	const isMediumScreen = useMediaQuery(theme.breakpoints.up('md'));
@@ -58,9 +53,11 @@ export default function NoiseSphere({ frequency = 1.0, ...props }: NoiseSpherePr
 	}, [isSmallScreen, isMediumScreen]);
 
 	return (
-		<mesh {...props} ref={sphereRef}>
-			<icosahedronGeometry attach='geometry' args={[2, 12]} />
-			<primitive object={material} attach='material' />
-		</mesh>
+		<group {...props}>
+			<points ref={sphereRef}>
+				<icosahedronGeometry args={[2, 12]} />
+				<pointsMaterial color='#5786F5' size={0.015} sizeAttenuation />
+			</points>
+		</group>
 	);
 }
