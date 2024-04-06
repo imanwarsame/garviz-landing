@@ -1,12 +1,11 @@
 import { scroller } from 'react-scroll';
 import { motion } from 'framer-motion';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { AppBar, Button, Stack, Toolbar, Typography, useTheme } from '@mui/material';
+import { AppBar, Button, Stack, Toolbar, Typography } from '@mui/material';
 import NavigationLinks from './NavigationLinks';
 import DarkModeToggle from '../darkmode/DarkModeToggle';
 
 export default function Navbar() {
-	const theme = useTheme();
 	const navigate = useNavigate();
 	const location = useLocation();
 	const currentLocation = location.pathname;
@@ -78,13 +77,7 @@ export default function Navbar() {
 			sx={{
 				boxShadow: 0,
 				borderRadius: 0,
-				backgroundImage:
-					currentLocation === '/'
-						? 'none'
-						: `radial-gradient(rgba(0, 0, 0, 0) 1px, ${theme.palette.background.default} 1px)`,
-				backgroundSize: currentLocation === '/' ? 'none' : '4px 4px',
-				backgroundColor: 'transparent',
-				backdropFilter: 'blur(3px)',
+				background: 'transparent',
 				zIndex: 2,
 			}}
 		>
