@@ -18,6 +18,8 @@
     "@mui/icons-material": "^5.11.16",
     "@mui/lab": "^5.0.0-alpha.135",
     "@mui/material": "^5.13.6",
+    "@react-spring/parallax": "^9.7.3",
+    "@react-spring/web": "^9.7.3",
     "@react-three/drei": "^9.103.0",
     "@react-three/fiber": "^8.16.1",
     "@theme-toggles/react": "^4.1.0",

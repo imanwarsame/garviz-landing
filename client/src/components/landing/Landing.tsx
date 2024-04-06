@@ -10,28 +10,25 @@ export default function Landing() {
 
 	return (
 		<Element name='home_element'>
-			<Box
-				component='div'
-				sx={{
-					position: 'relative',
-					height: '100svh',
-					width: '100vw',
-					overflowX: 'hidden',
-					opacity: 0.9,
-				}}
-			>
+			<>
 				<Box
 					component='div'
 					sx={{
 						position: 'absolute',
 						top: '50%',
-						left: { xs: '10%', md: '2%' },
+						left: '50%',
+						transform: 'translate(-50%, -50%)',
+						textAlign: 'center',
+						width: '80%',
 						zIndex: 2,
 					}}
 				>
 					<Stack direction='column' spacing={1}>
-						<Typography fontWeight='bold' sx={{ typography: { xs: 'h2', md: 'h2' } }}>
-							Landing page
+						<Typography fontWeight='bold' sx={{ typography: { xs: 'h4', md: 'h2' } }}>
+							Elevate your game to another planet
+						</Typography>
+						<Typography sx={{ typography: { xs: 'body2', md: 'h6' } }}>
+							Use data to take your team to the next level. Gather. Visualise. Analyse.
 						</Typography>
 					</Stack>
 				</Box>
@@ -42,14 +39,9 @@ export default function Landing() {
 					justifyContent='center'
 					sx={{ position: 'absolute', bottom: '20px', left: '50%', transform: 'translateX(-50%)' }}
 				>
-					<Lottie
-						animationData={darkMode ? animatedScrollLight : animatedScrollDark}
-						height={200}
-						width={200}
-						style={{ color: 'orange' }}
-					/>
+					<Lottie animationData={darkMode ? animatedScrollLight : animatedScrollDark} height={200} width={200} />
 				</Box>
-			</Box>
+			</>
 		</Element>
 	);
 }
