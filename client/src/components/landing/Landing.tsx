@@ -4,13 +4,24 @@ import animatedScrollDark from '../../assets/scroll-down-dark.json';
 import animatedScrollLight from '../../assets/scroll-down-light.json';
 import { useDevStore } from '../../store';
 import { Element } from 'react-scroll';
+import Scene from '../planet/Planet';
 
 export default function Landing() {
 	const { darkMode } = useDevStore();
 
 	return (
 		<Element name='home_element'>
-			<>
+			<Box
+				component='div'
+				sx={{
+					position: 'relative',
+					height: '100svh',
+					width: '100vw',
+					overflowX: 'hidden',
+					opacity: 0.9,
+				}}
+			>
+				<Scene />
 				<Box
 					component='div'
 					sx={{
@@ -41,7 +52,7 @@ export default function Landing() {
 				>
 					<Lottie animationData={darkMode ? animatedScrollLight : animatedScrollDark} height={200} width={200} />
 				</Box>
-			</>
+			</Box>
 		</Element>
 	);
 }
