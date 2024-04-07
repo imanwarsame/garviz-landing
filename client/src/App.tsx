@@ -7,7 +7,6 @@ import Splash from './components/splash/Splash';
 import { AnimatePresence } from 'framer-motion';
 import Home from './components/home/Home';
 import { Routes, Route, useLocation } from 'react-router-dom';
-import Articles from './components/articles/Articles';
 import MobileNavbar from './components/mobilenavbar/MobileNavbar';
 
 export default function App() {
@@ -63,7 +62,6 @@ export default function App() {
 			</Hidden>
 			<Routes>
 				<Route path='/' element={<Home />} />
-				<Route path='/articles' element={<Articles />} />
 			</Routes>
 		</ThemeProvider>
 	);

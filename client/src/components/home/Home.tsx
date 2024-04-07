@@ -25,14 +25,16 @@ export default function Home() {
 				height: '100%',
 			}}
 		>
-			<Parallax ref={parallax} pages={3}>
+			<Parallax ref={parallax} pages={4}>
 				<ParallaxLayer offset={1} speed={1} style={{ backgroundColor: '#805E73' }} />
 				<ParallaxLayer offset={2} speed={1} style={{ backgroundColor: '#87BCDE' }} />
+				<ParallaxLayer offset={3} speed={1} style={{ backgroundColor: '#805E73' }} />
+				<ParallaxLayer offset={4} speed={1} style={{ backgroundColor: '#87BCDE' }} />
 
 				<ParallaxLayer
 					offset={0}
 					speed={0}
-					factor={3}
+					factor={4}
 					style={{
 						backgroundImage: url('stars', true),
 						backgroundSize: 'cover',
@@ -69,7 +71,7 @@ export default function Home() {
 					<img src={url('cloud')} style={{ display: 'block', width: '15%', marginLeft: '75%' }} />
 				</ParallaxLayer>
 
-				<ParallaxLayer
+				{/* <ParallaxLayer
 					offset={2.5}
 					speed={-0.4}
 					style={{
@@ -80,7 +82,7 @@ export default function Home() {
 					}}
 				>
 					<img src={url('earth')} style={{ width: '60%' }} />
-				</ParallaxLayer>
+				</ParallaxLayer> */}
 
 				<ParallaxLayer
 					offset={2}
@@ -132,6 +134,23 @@ export default function Home() {
 					onClick={() => parallax.current.scrollTo(0)}
 				>
 					<img src={url('clients-main')} style={{ width: '40%' }} />
+				</ParallaxLayer>
+
+				{/* This is page 4 - Add your new content here */}
+				<ParallaxLayer
+					offset={3}
+					speed={0.1}
+					style={{
+						display: 'flex',
+						alignItems: 'center',
+						justifyContent: 'center',
+						width: '100%',
+						height: '100%',
+					}}
+					onClick={() => parallax.current.scrollTo(0)}
+				>
+					{/* Add your new content here */}
+					<h1>This is the new page!</h1>
 				</ParallaxLayer>
 			</Parallax>{' '}
 		</Box>

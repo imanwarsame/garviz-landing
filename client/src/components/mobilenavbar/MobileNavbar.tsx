@@ -1,41 +1,9 @@
 import { motion } from 'framer-motion';
 import { scroller } from 'react-scroll';
-import { useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
-import { AppBar, Stack, Toolbar, Typography, useTheme } from '@mui/material';
-import NavBody from './NavBody';
+import { AppBar, Stack, Toolbar, Typography } from '@mui/material';
 import DarkModeToggle from '../darkmode/DarkModeToggle';
-import MenuButton from './MenuButton';
 
 export default function MobileNavbar() {
-	const theme = useTheme();
-	const [selectedLink, setSelectedLink] = useState({ isActive: false, index: 0 });
-	const [isOpen, setOpen] = useState(false);
-	const navigate = useNavigate();
-	const location = useLocation();
-	const currentLocation = location.pathname;
-
-	const links = [
-		{
-			title: 'Home',
-			href: '/',
-		},
-		{
-			title: 'Articles',
-			href: '/articles',
-		},
-	];
-
-	/**
-	 * The function `handleRouteChange` navigates to a new route and closes the menu (for mobile).
-	 * @param {string} href - The `href` parameter in the `handleRouteChange` function is a string that
-	 * represents the URL of the route that the application will navigate to.
-	 */
-	const handleRouteChange = (href: string) => {
-		navigate(href);
-		setOpen(false);
-	};
-
 	/**
 	 * The scrollToElement function scrolls to a specified element with a smooth animation using specified
 	 * duration and easing function.
@@ -52,59 +20,36 @@ export default function MobileNavbar() {
 	};
 
 	return (
-		<>
-			<AppBar
-				position='fixed'
-				component={motion.div}
+		<AppBar
+			position='fixed'
+			component={motion.div}
+			sx={{
+				boxShadow: 0,
+				borderRadius: 0,
+				background: 'transparent',
+				zIndex: 2,
+			}}
+		>
+			<Toolbar
 				sx={{
-					boxShadow: 0,
-					borderRadius: 0,
-					background: 'transparent',
-					zIndex: 2,
+					display: 'flex',
+					alignItems: 'center',
+					justifyContent: 'space-between',
 				}}
 			>
-				<Toolbar
-					sx={{
-						display: 'flex',
-						alignItems: 'center',
-						justifyContent: 'space-between',
+				<Typography
+					fontWeight='bold'
+					variant='h6'
+					onClick={() => {
+						scrollToElement('home_element');
 					}}
 				>
-					<Typography
-						fontWeight='bold'
-						variant='h6'
-						onClick={() => {
-							if (currentLocation !== '/') {
-								handleRouteChange('/');
-							} else {
-								scrollToElement('home_element');
-							}
-						}}
-					>
-						GARVIZ.
-					</Typography>
-					<Stack direction='row' spacing={1} sx={{ display: 'flex', alignItems: 'center' }}>
-						<DarkModeToggle />
-						<MenuButton
-							isOpen={isOpen}
-							onClick={() => setOpen(!isOpen)}
-							strokeWidth='6'
-							color={theme.palette.text.primary}
-							lineProps={{ strokeLinecap: 'round' }}
-							transition={{ type: 'spring', stiffness: 260, damping: 20 }}
-							width='24'
-							height='24'
-						/>
-					</Stack>
-				</Toolbar>
-			</AppBar>
-			<NavBody
-				links={links}
-				selectedLink={selectedLink}
-				setSelectedLink={setSelectedLink}
-				handleRouteChange={handleRouteChange}
-				isOpen={isOpen}
-			/>
-		</>
+					GARVIZ.
+				</Typography>
+				<Stack direction='row' spacing={1} sx={{ display: 'flex', alignItems: 'center' }}>
+					<DarkModeToggle />
+				</Stack>
+			</Toolbar>
+		</AppBar>
 	);
 }
