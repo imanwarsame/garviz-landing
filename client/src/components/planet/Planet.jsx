@@ -3,7 +3,7 @@ import { LayerMaterial, Depth, Fresnel } from 'lamina';
 import { useRef } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { Suspense } from 'react';
-import { OrbitControls } from '@react-three/drei';
+// import { OrbitControls } from '@react-three/drei';
 
 import CustomLayer from './CustomLayer';
 
@@ -40,11 +40,11 @@ const Scene = () => {
 	return (
 		<Canvas camera={{ position: [0.0, 0.0, 8.0] }}>
 			<ambientLight intensity={0.03} />
-			<directionalLight position={[0.3, 0.15, 0.0]} intensity={2} />
+			<directionalLight position={[0.3, 0.15, 0.1]} intensity={2} />
 			<Suspense fallback={null}>
 				<Planet />
 			</Suspense>
-			<OrbitControls />
+			{/* <OrbitControls /> */}
 		</Canvas>
 	);
 };
