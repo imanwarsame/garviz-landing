@@ -2,7 +2,7 @@ import { Box } from '@mui/material';
 import { motion } from 'framer-motion';
 import { Parallax, ParallaxLayer, IParallax } from '@react-spring/parallax';
 import { useRef } from 'react';
-import Scene from '../planet/Planet';
+import Landing from '../landing/Landing';
 
 // Little helpers ...
 const url = (name: string, wrap = false) =>
@@ -103,7 +103,7 @@ export default function Home() {
 						justifyContent: 'center',
 					}}
 				>
-					<Scene />
+					<Landing />
 				</ParallaxLayer>
 
 				{/* This is page 2 */}

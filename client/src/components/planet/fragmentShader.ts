@@ -96,23 +96,22 @@ void main() {
   r.x = fbm( st + 1.0 * q + vec2(1.7,9.2)+ 0.15 * f_time );
   r.y = fbm( st + 1.0 * q + vec2(8.3,2.8)+ 0.126 * f_time);
 
-  float f = fbm(st+r);
+    float f = fbm(st+r);
 
-  f_color = mix(u_colorA,
-                u_colorB,
+    f_color = mix(vec3(u_colorA),
+                vec3(u_colorB),
                 clamp((f*f)*4.0,0.0,1.0));
 
-  f_color = mix(f_color,
+    f_color = mix(f_color,
                 u_cloudTint,
                 clamp(length(q),0.0,1.0));
 
-  f_color *= mix(f_color,
+    f_color *= mix(f_color,
                 u_colorA,
                 clamp(length(r.x),0.0,1.0));
 
 
-  vec4 f_colorfrag = vec4(f_color*3.0,1.0);
-  gl_FragColor = f_colorfrag;
+  vec4 f_colorfrag = vec4(f_color,1.0);
+  return f_colorfrag;
 }
-
 `;
