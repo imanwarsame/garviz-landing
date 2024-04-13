@@ -1,5 +1,4 @@
-import { ThemeProvider, CssBaseline, Hidden } from '@mui/material';
-import Navbar from './components/navbar/Navbar';
+import { ThemeProvider, CssBaseline } from '@mui/material';
 import { lightTheme, darkTheme } from '../theme';
 import { useDevStore } from './store';
 import { useEffect, useState } from 'react';
@@ -7,7 +6,6 @@ import Splash from './components/splash/Splash';
 import { AnimatePresence } from 'framer-motion';
 import Home from './components/home/Home';
 import { Routes, Route, useLocation } from 'react-router-dom';
-import MobileNavbar from './components/mobilenavbar/MobileNavbar';
 
 export default function App() {
 	const { darkMode } = useDevStore();
@@ -16,19 +14,13 @@ export default function App() {
 	const theme = darkMode ? darkTheme : lightTheme;
 
 	console.log(`
-	#####  #####         ###         #####    
-	#####   ####         ###        #####     
-	 #####  #####       #####      #####      
-	 ###### #####      ######     #####       
-	  #####  #####    #######    #####        
-	   ##### #####   #### ####   ####         
-	   #####  ##### ####  ##### #####         
-		####  #########    #########          
-		#####  #######      #######           
-		#####  ######       ######            
-		 #####  ####         ####             
-		 ####   ####         ###              
-		  ##     ##          ##               
+
+	░░      ░░░░      ░░░       ░░░  ░░░░  ░░        ░░        ░
+	▒  ▒▒▒▒▒▒▒▒  ▒▒▒▒  ▒▒  ▒▒▒▒  ▒▒  ▒▒▒▒  ▒▒▒▒▒  ▒▒▒▒▒▒▒▒▒▒  ▒▒
+	▓  ▓▓▓   ▓▓  ▓▓▓▓  ▓▓       ▓▓▓▓  ▓▓  ▓▓▓▓▓▓  ▓▓▓▓▓▓▓▓  ▓▓▓▓
+	█  ████  ██        ██  ███  █████    ███████  ██████  ██████
+	██      ███  ████  ██  ████  █████  █████        ██        █			   
+			
 	`);
 
 	useEffect(() => {
@@ -54,12 +46,6 @@ export default function App() {
 				switching between "light" and "dark" modes of native components such as scrollbar */}
 			<CssBaseline enableColorScheme />
 			<AnimatePresence mode='wait'>{location.pathname === '/' && loading && <Splash />}</AnimatePresence>
-			<Hidden mdUp>
-				<MobileNavbar />
-			</Hidden>
-			<Hidden mdDown>
-				<Navbar />
-			</Hidden>
 			<Routes>
 				<Route path='/' element={<Home />} />
 			</Routes>

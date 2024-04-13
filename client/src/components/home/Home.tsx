@@ -1,4 +1,4 @@
-import { Box, useTheme } from '@mui/material';
+import { Box, Hidden, useTheme } from '@mui/material';
 import { Parallax, ParallaxLayer, IParallax } from '@react-spring/parallax';
 import { useRef } from 'react';
 import Landing from '../landing/Landing';
@@ -10,6 +10,8 @@ import AnalyseImage from '../../assets/Analyse.png';
 import Analyse from '../features/Analyse';
 import Pricing from '../pricing/Pricing';
 import Contact from '../contact/Contact';
+import MobileNavbar from '../mobilenavbar/MobileNavbar';
+import Navbar from '../navbar/Navbar';
 
 export default function Home() {
 	const parallax = useRef<IParallax>(null!);
@@ -24,6 +26,12 @@ export default function Home() {
 				height: '100%',
 			}}
 		>
+			<Hidden mdUp>
+				<MobileNavbar scrollTo={parallax.current.scrollTo} />
+			</Hidden>
+			<Hidden mdDown>
+				<Navbar scrollTo={parallax.current.scrollTo} />
+			</Hidden>
 			<Parallax ref={parallax} pages={6}>
 				<ParallaxLayer offset={1} speed={1} style={{ backgroundColor: theme.palette.background.paper }} />
 				<ParallaxLayer offset={2} speed={1} style={{ backgroundColor: theme.palette.background.paper }} />

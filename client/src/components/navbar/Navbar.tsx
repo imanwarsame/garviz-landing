@@ -1,78 +1,27 @@
-import { scroller } from 'react-scroll';
-import { motion } from 'framer-motion';
-import { useLocation, useNavigate } from 'react-router-dom';
-import { AppBar, Button, Stack, Toolbar, Typography } from '@mui/material';
+import { AppBar, Stack, Toolbar, Typography } from '@mui/material';
 import DarkModeToggle from '../darkmode/DarkModeToggle';
+import NavigationLinks from './NavigationLinks';
 
-export default function Navbar() {
-	const navigate = useNavigate();
-	const location = useLocation();
-	const currentLocation = location.pathname;
-
-	/**
-	 * The scrollToElement function scrolls to a specified element with a smooth animation using specified
-	 * duration and easing function.
-	 * @param {string} elementName - The `elementName` parameter in the `scrollToElement` function is a
-	 * string that represents the name or identifier of the element to which you want to scroll on the
-	 * webpage.
-	 */
-	const scrollToElement = (elementName: string) => {
-		scroller.scrollTo(elementName, {
-			duration: 3000, //Duration of the scroll animation in milliseconds
-			delay: 0, //Delay before scrolling begins in milliseconds
-			smooth: 'easeInOutQuart', //Scrolling animation easing function
-		});
-	};
-
-	/**
-	 * The function `handleRouteChange` navigates to a new route and closes the menu (for mobile).
-	 * @param {string} href - The `href` parameter in the `handleRouteChange` function is a string that
-	 * represents the URL of the route that the application will navigate to.
-	 */
-	const handleRouteChange = (href: string) => {
-		navigate(href);
-	};
-
-	// const links = [
-	// 	{
-	// 		title: 'Features',
-	// 		action: async () => {
-	// 			if (currentLocation !== '/') {
-	// 				await handleRouteChange('/');
-	// 				scrollToElement('features_element');
-	// 			} else {
-	// 				scrollToElement('features_element');
-	// 			}
-	// 		},
-	// 	},
-	// 	{
-	// 		title: 'Pricing',
-	// 		action: async () => {
-	// 			if (currentLocation !== '/') {
-	// 				await handleRouteChange('/');
-	// 				scrollToElement('pricing_element');
-	// 			} else {
-	// 				scrollToElement('pricing_element');
-	// 			}
-	// 		},
-	// 	},
-	// 	{
-	// 		title: 'Contact',
-	// 		action: async () => {
-	// 			if (currentLocation !== '/') {
-	// 				await handleRouteChange('/');
-	// 				scrollToElement('contact_element');
-	// 			} else {
-	// 				scrollToElement('contact_element');
-	// 			}
-	// 		},
-	// 	},
-	// ];
+export default function Navbar({ scrollTo }: { scrollTo: (index: number) => void }) {
+	const links = [
+		{
+			title: 'Features',
+			action: async () => scrollTo(1),
+		},
+		{
+			title: 'Pricing',
+			action: async () => scrollTo(4),
+		},
+		{
+			title: 'Contact',
+			action: async () => scrollTo(5),
+		},
+	];
 
 	return (
 		<AppBar
 			position='fixed'
-			component={motion.div}
+			component='div'
 			sx={{
 				boxShadow: 0,
 				borderRadius: 0,
@@ -95,21 +44,12 @@ export default function Navbar() {
 							cursor: 'pointer', //Change cursor to pointer on hover
 						},
 					}}
-					onClick={() => {
-						if (currentLocation !== '/') {
-							handleRouteChange('/');
-						} else {
-							scrollToElement('home_element');
-						}
-					}}
+					onClick={() => scrollTo(0)}
 				>
 					GARVIZ.
 				</Typography>
-				{/* <NavigationLinks links={links} /> */}
+				<NavigationLinks links={links} />
 				<Stack direction='row' spacing={1}>
-					<Button variant='outlined' sx={{ borderRadius: '25px' }}>
-						Get in touch
-					</Button>
 					<DarkModeToggle />
 				</Stack>
 			</Toolbar>
