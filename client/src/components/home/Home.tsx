@@ -8,6 +8,8 @@ import GatherImage from '../../assets/Gather.png';
 import VisualiseImage from '../../assets/Visualise.png';
 import AnalyseImage from '../../assets/Analyse.png';
 import Analyse from '../features/Analyse';
+import Pricing from '../pricing/Pricing';
+import Contact from '../contact/Contact';
 
 export default function Home() {
 	const parallax = useRef<IParallax>(null!);
@@ -22,11 +24,13 @@ export default function Home() {
 				height: '100%',
 			}}
 		>
-			<Parallax ref={parallax} pages={4}>
+			<Parallax ref={parallax} pages={6}>
 				<ParallaxLayer offset={1} speed={1} style={{ backgroundColor: theme.palette.background.paper }} />
 				<ParallaxLayer offset={2} speed={1} style={{ backgroundColor: theme.palette.background.paper }} />
 				<ParallaxLayer offset={3} speed={1} style={{ backgroundColor: theme.palette.background.paper }} />
 				<ParallaxLayer offset={4} speed={1} style={{ backgroundColor: theme.palette.background.paper }} />
+				<ParallaxLayer offset={5} speed={1} style={{ backgroundColor: theme.palette.background.paper }} />
+				<ParallaxLayer offset={6} speed={1} style={{ backgroundColor: theme.palette.background.paper }} />
 
 				{/* <ParallaxLayer
 					offset={0}
@@ -189,6 +193,30 @@ export default function Home() {
 					}}
 				>
 					<Analyse />
+				</ParallaxLayer>
+
+				<ParallaxLayer
+					offset={4}
+					speed={0}
+					style={{
+						display: 'flex',
+						alignItems: 'center',
+						justifyContent: 'center',
+					}}
+				>
+					<Pricing />
+				</ParallaxLayer>
+
+				<ParallaxLayer
+					offset={5}
+					speed={0}
+					style={{
+						display: 'flex',
+						alignItems: 'center',
+						justifyContent: 'center',
+					}}
+				>
+					<Contact />
 				</ParallaxLayer>
 			</Parallax>
 		</Box>
