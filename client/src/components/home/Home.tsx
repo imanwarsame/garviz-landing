@@ -1,4 +1,4 @@
-import { Box } from '@mui/material';
+import { Box, useTheme } from '@mui/material';
 import { Parallax, ParallaxLayer, IParallax } from '@react-spring/parallax';
 import { useRef } from 'react';
 import Landing from '../landing/Landing';
@@ -11,9 +11,11 @@ import Analyse from '../features/Analyse';
 
 export default function Home() {
 	const parallax = useRef<IParallax>(null!);
+	const theme = useTheme();
 
 	return (
 		<Box
+			id='home-container'
 			component='div'
 			sx={{
 				width: '100%',
@@ -21,10 +23,10 @@ export default function Home() {
 			}}
 		>
 			<Parallax ref={parallax} pages={4}>
-				<ParallaxLayer offset={1} speed={1} style={{ backgroundColor: '#805E73' }} />
-				<ParallaxLayer offset={2} speed={1} style={{ backgroundColor: '#87BCDE' }} />
-				<ParallaxLayer offset={3} speed={1} style={{ backgroundColor: '#805E73' }} />
-				<ParallaxLayer offset={4} speed={1} style={{ backgroundColor: '#87BCDE' }} />
+				<ParallaxLayer offset={1} speed={1} style={{ backgroundColor: theme.palette.background.paper }} />
+				<ParallaxLayer offset={2} speed={1} style={{ backgroundColor: theme.palette.background.paper }} />
+				<ParallaxLayer offset={3} speed={1} style={{ backgroundColor: theme.palette.background.paper }} />
+				<ParallaxLayer offset={4} speed={1} style={{ backgroundColor: theme.palette.background.paper }} />
 
 				{/* <ParallaxLayer
 					offset={0}

@@ -2,7 +2,6 @@ import { scroller } from 'react-scroll';
 import { motion } from 'framer-motion';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { AppBar, Button, Stack, Toolbar, Typography } from '@mui/material';
-import NavigationLinks from './NavigationLinks';
 import DarkModeToggle from '../darkmode/DarkModeToggle';
 
 export default function Navbar() {
@@ -34,41 +33,41 @@ export default function Navbar() {
 		navigate(href);
 	};
 
-	const links = [
-		{
-			title: 'Features',
-			action: async () => {
-				if (currentLocation !== '/') {
-					await handleRouteChange('/');
-					scrollToElement('features_element');
-				} else {
-					scrollToElement('features_element');
-				}
-			},
-		},
-		{
-			title: 'Pricing',
-			action: async () => {
-				if (currentLocation !== '/') {
-					await handleRouteChange('/');
-					scrollToElement('pricing_element');
-				} else {
-					scrollToElement('pricing_element');
-				}
-			},
-		},
-		{
-			title: 'Contact',
-			action: async () => {
-				if (currentLocation !== '/') {
-					await handleRouteChange('/');
-					scrollToElement('contact_element');
-				} else {
-					scrollToElement('contact_element');
-				}
-			},
-		},
-	];
+	// const links = [
+	// 	{
+	// 		title: 'Features',
+	// 		action: async () => {
+	// 			if (currentLocation !== '/') {
+	// 				await handleRouteChange('/');
+	// 				scrollToElement('features_element');
+	// 			} else {
+	// 				scrollToElement('features_element');
+	// 			}
+	// 		},
+	// 	},
+	// 	{
+	// 		title: 'Pricing',
+	// 		action: async () => {
+	// 			if (currentLocation !== '/') {
+	// 				await handleRouteChange('/');
+	// 				scrollToElement('pricing_element');
+	// 			} else {
+	// 				scrollToElement('pricing_element');
+	// 			}
+	// 		},
+	// 	},
+	// 	{
+	// 		title: 'Contact',
+	// 		action: async () => {
+	// 			if (currentLocation !== '/') {
+	// 				await handleRouteChange('/');
+	// 				scrollToElement('contact_element');
+	// 			} else {
+	// 				scrollToElement('contact_element');
+	// 			}
+	// 		},
+	// 	},
+	// ];
 
 	return (
 		<AppBar
@@ -106,7 +105,7 @@ export default function Navbar() {
 				>
 					GARVIZ.
 				</Typography>
-				<NavigationLinks links={links} />
+				{/* <NavigationLinks links={links} /> */}
 				<Stack direction='row' spacing={1}>
 					<Button variant='outlined' sx={{ borderRadius: '25px' }}>
 						Get in touch
