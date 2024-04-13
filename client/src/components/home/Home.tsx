@@ -27,10 +27,10 @@ export default function Home() {
 			}}
 		>
 			<Hidden mdUp>
-				<MobileNavbar scrollTo={parallax.current.scrollTo} />
+				{parallax.current && parallax.current.scrollTo && <MobileNavbar scrollTo={parallax.current.scrollTo} />}
 			</Hidden>
 			<Hidden mdDown>
-				<Navbar scrollTo={parallax.current.scrollTo} />
+				{parallax.current && parallax.current.scrollTo && <Navbar scrollTo={parallax.current.scrollTo} />}
 			</Hidden>
 			<Parallax ref={parallax} pages={6}>
 				<ParallaxLayer offset={1} speed={1} style={{ backgroundColor: theme.palette.background.paper }} />
