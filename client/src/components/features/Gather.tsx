@@ -1,7 +1,6 @@
 import { Box, Stack, Typography } from '@mui/material';
 import { Element } from 'react-scroll';
 import { ParallaxLayer } from '@react-spring/parallax';
-import GatherImage from '../../assets/Gather.png';
 
 export default function Gather() {
 	return (
@@ -18,21 +17,6 @@ export default function Gather() {
 					justifyContent: 'space-between',
 				}}
 			>
-				<ParallaxLayer speed={0}>
-					<Box
-						aria-label='gather-feature-image'
-						component='img'
-						src={GatherImage}
-						sx={{
-							position: 'absolute',
-							top: '50%', //Centre vertically
-							left: '5%', //Adjust distance from the left
-							transform: 'translateY(-50%)', //Shift upward by half of its height
-							width: '40%',
-							zIndex: 2,
-						}}
-					></Box>
-				</ParallaxLayer>
 				<ParallaxLayer speed={0}>
 					<Box
 						aria-label='gather-feature-text'

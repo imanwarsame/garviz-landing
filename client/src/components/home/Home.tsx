@@ -3,10 +3,11 @@ import { Parallax, ParallaxLayer, IParallax } from '@react-spring/parallax';
 import { useRef } from 'react';
 import Landing from '../landing/Landing';
 import Gather from '../features/Gather';
-
-// Little helpers ...
-const url = (name: string, wrap = false) =>
-	`${wrap ? 'url(' : ''}https://awv3node-homepage.surge.sh/build/assets/${name}.svg${wrap ? ')' : ''}`;
+import Visualise from '../features/Visualise';
+import GatherImage from '../../assets/Gather.png';
+import VisualiseImage from '../../assets/Visualise.png';
+import AnalyseImage from '../../assets/Analyse.png';
+import Analyse from '../features/Analyse';
 
 export default function Home() {
 	const parallax = useRef<IParallax>(null!);
@@ -78,7 +79,7 @@ export default function Home() {
 					<img src={url('earth')} style={{ width: '60%' }} />
 				</ParallaxLayer> */}
 
-				<ParallaxLayer
+				{/* <ParallaxLayer
 					offset={2}
 					speed={-0.3}
 					style={{
@@ -86,13 +87,60 @@ export default function Home() {
 						backgroundPosition: 'center',
 						backgroundImage: url('clients', true),
 					}}
-				/>
+				/> */}
+
+				<ParallaxLayer offset={1} speed={-0.05}>
+					<Box
+						aria-label='gather-feature-image'
+						component='img'
+						src={GatherImage}
+						sx={{
+							position: 'absolute',
+							top: '50%', //Centre vertically
+							left: '5%', //Adjust distance from the left
+							transform: 'translateY(-50%)', //Shift upward by half of its height
+							width: '40%',
+							zIndex: 2,
+						}}
+					></Box>
+				</ParallaxLayer>
+
+				<ParallaxLayer offset={2} speed={-0.05}>
+					<Box
+						aria-label='visualise-feature-image'
+						component='img'
+						src={VisualiseImage}
+						sx={{
+							position: 'absolute',
+							top: '50%', //Centre vertically
+							left: '5%', //Adjust distance from the left
+							transform: 'translateY(-50%)', //Shift upward by half of its height
+							width: '40%',
+							zIndex: 2,
+						}}
+					></Box>
+				</ParallaxLayer>
+
+				<ParallaxLayer offset={3} speed={-0.05}>
+					<Box
+						aria-label='analyse-feature-image'
+						component='img'
+						src={AnalyseImage}
+						sx={{
+							position: 'absolute',
+							top: '50%', //Centre vertically
+							left: '5%', //Adjust distance from the left
+							transform: 'translateY(-50%)', //Shift upward by half of its height
+							width: '40%',
+							zIndex: 2,
+						}}
+					></Box>
+				</ParallaxLayer>
 
 				{/* This is page 1 */}
 				<ParallaxLayer
 					offset={0}
-					speed={0.1}
-					// onClick={() => parallax.current.scrollTo(1)}
+					speed={0}
 					style={{
 						display: 'flex',
 						alignItems: 'center',
@@ -105,8 +153,7 @@ export default function Home() {
 				{/* This is page 2 */}
 				<ParallaxLayer
 					offset={1}
-					speed={0.1}
-					onClick={() => parallax.current.scrollTo(2)}
+					speed={0}
 					style={{
 						display: 'flex',
 						alignItems: 'center',
@@ -119,34 +166,29 @@ export default function Home() {
 				{/* This is page 3 */}
 				<ParallaxLayer
 					offset={2}
-					speed={-0}
+					speed={0}
 					style={{
 						display: 'flex',
 						alignItems: 'center',
 						justifyContent: 'center',
 					}}
-					onClick={() => parallax.current.scrollTo(0)}
 				>
-					<img src={url('clients-main')} style={{ width: '40%' }} />
+					<Visualise />
 				</ParallaxLayer>
 
 				{/* This is page 4 - Add your new content here */}
 				<ParallaxLayer
 					offset={3}
-					speed={0.1}
+					speed={0}
 					style={{
 						display: 'flex',
 						alignItems: 'center',
 						justifyContent: 'center',
-						width: '100%',
-						height: '100%',
 					}}
-					onClick={() => parallax.current.scrollTo(0)}
 				>
-					{/* Add your new content here */}
-					<h1>This is the new page!</h1>
+					<Analyse />
 				</ParallaxLayer>
-			</Parallax>{' '}
+			</Parallax>
 		</Box>
 	);
 }
