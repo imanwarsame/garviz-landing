@@ -21,12 +21,13 @@ export default function Landing() {
 					overflow: 'hidden',
 				}}
 			>
-				<ParallaxLayer speed={-0.5}>
+				<ParallaxLayer speed={-0.25}>
 					<Scene />
 				</ParallaxLayer>
-				<Box component='div' className='landing-text'>
+				<Box component='div'>
 					<ParallaxLayer speed={2}>
 						<Box
+							aria-label='landing-page-text'
 							component='div'
 							sx={{
 								position: 'absolute',

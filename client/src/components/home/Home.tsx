@@ -1,8 +1,8 @@
 import { Box } from '@mui/material';
-import { motion } from 'framer-motion';
 import { Parallax, ParallaxLayer, IParallax } from '@react-spring/parallax';
 import { useRef } from 'react';
 import Landing from '../landing/Landing';
+import Gather from '../features/Gather';
 
 // Little helpers ...
 const url = (name: string, wrap = false) =>
@@ -13,14 +13,8 @@ export default function Home() {
 
 	return (
 		<Box
-			component={motion.div}
+			component='div'
 			sx={{
-				// transform: 'translateZ(0)', //Enables hardware acceleration
-				bgcolor: 'background.default',
-				// display: 'flex',
-				// flexDirection: 'column',
-				// alignItems: 'center',
-				// overflow: 'hidden',
 				width: '100%',
 				height: '100%',
 			}}
@@ -31,17 +25,17 @@ export default function Home() {
 				<ParallaxLayer offset={3} speed={1} style={{ backgroundColor: '#805E73' }} />
 				<ParallaxLayer offset={4} speed={1} style={{ backgroundColor: '#87BCDE' }} />
 
-				<ParallaxLayer
+				{/* <ParallaxLayer
 					offset={0}
 					speed={0}
-					factor={4}
+					factor={5}
 					style={{
 						backgroundImage: url('stars', true),
 						backgroundSize: 'cover',
 					}}
-				/>
+				/> */}
 
-				<ParallaxLayer offset={1.3} speed={-0.3} style={{ pointerEvents: 'none' }}>
+				{/* <ParallaxLayer offset={1.3} speed={-0.3} style={{ pointerEvents: 'none' }}>
 					<img src={url('satellite4')} style={{ width: '15%', marginLeft: '70%' }} />
 				</ParallaxLayer>
 
@@ -69,7 +63,7 @@ export default function Home() {
 				<ParallaxLayer offset={2.6} speed={0.4} style={{ opacity: 0.6 }}>
 					<img src={url('cloud')} style={{ display: 'block', width: '20%', marginLeft: '5%' }} />
 					<img src={url('cloud')} style={{ display: 'block', width: '15%', marginLeft: '75%' }} />
-				</ParallaxLayer>
+				</ParallaxLayer> */}
 
 				{/* <ParallaxLayer
 					offset={2.5}
@@ -119,7 +113,7 @@ export default function Home() {
 						justifyContent: 'center',
 					}}
 				>
-					<img src={url('bash')} style={{ width: '40%' }} />
+					<Gather />
 				</ParallaxLayer>
 
 				{/* This is page 3 */}
