@@ -5,6 +5,7 @@ import animatedScrollLight from '../../assets/scroll-down-light.json';
 import { useDevStore } from '../../store';
 import { Element } from 'react-scroll';
 import Scene from '../planet/Planet';
+import { ParallaxLayer } from '@react-spring/parallax';
 
 export default function Landing() {
 	const { darkMode } = useDevStore();
@@ -17,32 +18,36 @@ export default function Landing() {
 					position: 'relative',
 					height: '100svh',
 					width: '100vw',
-					overflowX: 'hidden',
+					overflow: 'hidden',
 				}}
 			>
-				<Scene />
+				<ParallaxLayer speed={-0.5}>
+					<Scene />
+				</ParallaxLayer>
 				<Box component='div' className='landing-text'>
-					<Box
-						component='div'
-						sx={{
-							position: 'absolute',
-							top: '50%',
-							left: '50%',
-							transform: 'translate(-50%, -50%)',
-							textAlign: 'center',
-							width: '80%',
-							zIndex: 2,
-						}}
-					>
-						<Stack direction='column' spacing={1}>
-							<Typography fontWeight='bold' sx={{ typography: { xs: 'h4', md: 'h2' } }}>
-								Elevate your game to another planet
-							</Typography>
-							<Typography sx={{ typography: { xs: 'body2', md: 'h6' } }}>
-								Use data to take your team to the next level. Gather. Visualise. Analyse.
-							</Typography>
-						</Stack>
-					</Box>
+					<ParallaxLayer speed={2}>
+						<Box
+							component='div'
+							sx={{
+								position: 'absolute',
+								top: '50%',
+								left: '50%',
+								transform: 'translate(-50%, -50%)',
+								textAlign: 'center',
+								width: '80%',
+								zIndex: 2,
+							}}
+						>
+							<Stack direction='column' spacing={1}>
+								<Typography fontWeight='bold' sx={{ typography: { xs: 'h4', md: 'h2' } }}>
+									Elevate your game to another planet
+								</Typography>
+								<Typography sx={{ typography: { xs: 'body2', md: 'h6' } }}>
+									Use data to take your team to the next level. Gather. Visualise. Analyse.
+								</Typography>
+							</Stack>
+						</Box>
+					</ParallaxLayer>
 					<Box
 						component='div'
 						display='flex'
