@@ -42,8 +42,8 @@ export default function Landing() {
 								direction='column'
 								spacing={1}
 								sx={{
-									backdropFilter: 'blur(5px)',
-									backgroundColor: 'rgba(255, 255, 255, 0.25)',
+									backdropFilter: darkMode ? 'none' : 'blur(5px)',
+									backgroundColor: darkMode ? 'transparent' : 'rgba(255, 255, 255, 0.25)',
 									paddingBottom: '10px',
 									paddingX: '8px',
 									whiteSpace: 'nowrap',
