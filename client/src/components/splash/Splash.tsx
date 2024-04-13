@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { Box, Typography } from '@mui/material';
-
-const words = ['Hello', 'Bonjour', 'Ciao', 'Olà', 'やあ', 'السلام عليكم', 'Guten tag', 'Hallo'];
+import { Box, useTheme } from '@mui/material';
+import Lottie from 'lottie-react';
+import LoadingAnimation from '../../assets/loading-bar-graph.json';
 
 const opacity = {
 	initial: {
@@ -25,22 +25,12 @@ const slideUp = {
 };
 
 export default function Splash() {
-	const [index, setIndex] = useState(0);
 	const [dimension, setDimension] = useState({ width: 0, height: 0 });
+	const theme = useTheme();
 
 	useEffect(() => {
 		setDimension({ width: window.innerWidth, height: window.innerHeight });
 	}, []);
-
-	useEffect(() => {
-		if (index == words.length - 1) return;
-		setTimeout(
-			() => {
-				setIndex(index + 1);
-			},
-			index == 0 ? 1000 : 150,
-		);
-	}, [index]);
 
 	const initialPath = `M0 0 L${dimension.width} 0 L${dimension.width} ${dimension.height} Q${dimension.width / 2} ${dimension.height + 300} 0 ${dimension.height}  L0 0`;
 	const targetPath = `M0 0 L${dimension.width} 0 L${dimension.width} ${dimension.height} Q${dimension.width / 2} ${dimension.height} 0 ${dimension.height}  L0 0`;
@@ -76,22 +66,20 @@ export default function Splash() {
 		>
 			{dimension.width > 0 && (
 				<>
-					<Typography
-						component={motion.p}
+					<Box
+						component={motion.div}
 						variants={opacity}
 						initial='initial'
 						animate='enter'
 						sx={{
 							display: 'flex',
-							color: 'white',
-							fontSize: '42px',
 							alignItems: 'center',
 							position: 'absolute',
 							zIndex: 1,
 						}}
 					>
-						{words[index]}
-					</Typography>
+						<Lottie animationData={LoadingAnimation} height={200} width={200} />
+					</Box>
 					<svg
 						style={{
 							position: 'absolute',
@@ -104,7 +92,7 @@ export default function Splash() {
 							variants={curve}
 							initial='initial'
 							exit='exit'
-							style={{ fill: '#071F19' }}
+							style={{ fill: theme.palette.text.primary }}
 						></motion.path>
 					</svg>
 				</>

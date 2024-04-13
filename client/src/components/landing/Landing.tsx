@@ -35,15 +35,33 @@ export default function Landing() {
 								left: '50%',
 								transform: 'translate(-50%, -50%)',
 								textAlign: 'center',
-								width: '80%',
 								zIndex: 2,
 							}}
 						>
-							<Stack direction='column' spacing={1}>
-								<Typography fontWeight='bold' sx={{ typography: { xs: 'h4', md: 'h2' } }}>
+							<Stack
+								direction='column'
+								spacing={1}
+								sx={{
+									backdropFilter: 'blur(5px)',
+									backgroundColor: 'rgba(255, 255, 255, 0.25)',
+									paddingBottom: '10px',
+									paddingX: '8px',
+									whiteSpace: 'nowrap',
+								}}
+							>
+								<Typography
+									fontWeight='bold'
+									sx={{
+										typography: { xs: 'h4', md: 'h2' },
+									}}
+								>
 									Elevate your game to another planet
 								</Typography>
-								<Typography sx={{ typography: { xs: 'body2', md: 'h6' } }}>
+								<Typography
+									sx={{
+										typography: { xs: 'body2', md: 'h6' },
+									}}
+								>
 									Use data to take your team to the next level. Gather. Visualise. Analyse.
 								</Typography>
 							</Stack>
