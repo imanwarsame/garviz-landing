@@ -4,7 +4,6 @@ import animatedScrollDark from '../../assets/scroll-down-dark.json';
 import animatedScrollLight from '../../assets/scroll-down-light.json';
 import { useDevStore } from '../../store';
 import { Element } from 'react-scroll';
-import Scene from '../planet/Planet';
 import { ParallaxLayer } from '@react-spring/parallax';
 
 export default function Landing() {
@@ -21,9 +20,7 @@ export default function Landing() {
 					overflow: 'hidden',
 				}}
 			>
-				<ParallaxLayer speed={-0.25}>
-					<Scene />
-				</ParallaxLayer>
+				<ParallaxLayer speed={-0.25}>{/* <Scene /> */}</ParallaxLayer>
 				<Box component='div'>
 					<ParallaxLayer speed={2}>
 						<Box

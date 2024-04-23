@@ -4,7 +4,7 @@ import { useRef } from 'react';
 import Landing from '../landing/Landing';
 import Gather from '../features/Gather';
 import Visualise from '../features/Visualise';
-import GatherImage from '../../assets/Gather.png';
+// import GatherImage from '../../assets/Gather.png';
 import VisualiseImage from '../../assets/Visualise.png';
 import AnalyseImage from '../../assets/Analyse.png';
 import Analyse from '../features/Analyse';
@@ -12,20 +12,14 @@ import Pricing from '../pricing/Pricing';
 import Contact from '../contact/Contact';
 import MobileNavbar from '../mobilenavbar/MobileNavbar';
 import Navbar from '../navbar/Navbar';
+import GatherImage from '../features/GatherImage';
 
 export default function Home() {
 	const parallax = useRef<IParallax>(null!);
 	const theme = useTheme();
 
 	return (
-		<Box
-			id='home-container'
-			component='div'
-			sx={{
-				width: '100%',
-				height: '100%',
-			}}
-		>
+		<Box component='div' sx={{ overflowY: 'scroll' }}>
 			<Hidden mdUp>
 				{parallax.current && parallax.current.scrollTo && <MobileNavbar scrollTo={parallax.current.scrollTo} />}
 			</Hidden>
@@ -103,7 +97,7 @@ export default function Home() {
 					}}
 				/> */}
 
-				<ParallaxLayer offset={1} speed={-0.05}>
+				{/* <animated.div style={textStyles}>
 					<Box
 						aria-label='gather-feature-image'
 						component='img'
@@ -117,6 +111,9 @@ export default function Home() {
 							zIndex: 2,
 						}}
 					></Box>
+				</animated.div> */}
+				<ParallaxLayer sticky={{ start: 0, end: 6 }}>
+					{parallax.current && parallax.current.container && <GatherImage containerRef={parallax.current.container} />}
 				</ParallaxLayer>
 
 				<ParallaxLayer offset={2} speed={-0.05}>
@@ -190,7 +187,7 @@ export default function Home() {
 					<Visualise />
 				</ParallaxLayer>
 
-				{/* This is page 4 - Add your new content here */}
+				{/* This is page 4*/}
 				<ParallaxLayer
 					offset={3}
 					speed={0}
@@ -203,6 +200,7 @@ export default function Home() {
 					<Analyse />
 				</ParallaxLayer>
 
+				{/* This is page 5*/}
 				<ParallaxLayer
 					offset={4}
 					speed={0}
@@ -215,6 +213,7 @@ export default function Home() {
 					<Pricing />
 				</ParallaxLayer>
 
+				{/* This is page 6*/}
 				<ParallaxLayer
 					offset={5}
 					speed={0}
