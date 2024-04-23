@@ -5,14 +5,16 @@ import Landing from '../landing/Landing';
 import Gather from '../features/Gather';
 import Visualise from '../features/Visualise';
 // import GatherImage from '../../assets/Gather.png';
-import VisualiseImage from '../../assets/Visualise.png';
-import AnalyseImage from '../../assets/Analyse.png';
+// import VisualiseImage from '../../assets/Visualise.png';
+// import AnalyseImage from '../../assets/Analyse.png';
 import Analyse from '../features/Analyse';
 import Pricing from '../pricing/Pricing';
 import Contact from '../contact/Contact';
 import MobileNavbar from '../mobilenavbar/MobileNavbar';
 import Navbar from '../navbar/Navbar';
 import GatherImage from '../features/GatherImage';
+import VisualiseImage from '../features/VisualiseImage';
+import AnalyseImage from '../features/AnalyseImage';
 
 export default function Home() {
 	const parallax = useRef<IParallax>(null!);
@@ -112,11 +114,8 @@ export default function Home() {
 						}}
 					></Box>
 				</animated.div> */}
-				<ParallaxLayer sticky={{ start: 0, end: 6 }}>
-					{parallax.current && parallax.current.container && <GatherImage containerRef={parallax.current.container} />}
-				</ParallaxLayer>
 
-				<ParallaxLayer offset={2} speed={-0.05}>
+				{/* <ParallaxLayer offset={2} speed={-0.05}>
 					<Box
 						aria-label='visualise-feature-image'
 						component='img'
@@ -130,9 +129,9 @@ export default function Home() {
 							zIndex: 2,
 						}}
 					></Box>
-				</ParallaxLayer>
+				</ParallaxLayer> */}
 
-				<ParallaxLayer offset={3} speed={-0.05}>
+				{/* <ParallaxLayer offset={3} speed={-0.05}>
 					<Box
 						aria-label='analyse-feature-image'
 						component='img'
@@ -146,6 +145,14 @@ export default function Home() {
 							zIndex: 2,
 						}}
 					></Box>
+				</ParallaxLayer> */}
+
+				<ParallaxLayer sticky={{ start: 1, end: 4 }}>
+					{parallax.current && parallax.current.container && <GatherImage containerRef={parallax.current.container} />}
+					{parallax.current && parallax.current.container && (
+						<VisualiseImage containerRef={parallax.current.container} />
+					)}
+					{parallax.current && parallax.current.container && <AnalyseImage containerRef={parallax.current.container} />}
 				</ParallaxLayer>
 
 				{/* This is page 1 */}
