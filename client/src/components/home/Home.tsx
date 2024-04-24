@@ -149,9 +149,15 @@ export default function Home() {
 
 				<ParallaxLayer sticky={{ start: 1, end: 4 }}>
 					{parallax.current && parallax.current.container && <GatherImage containerRef={parallax.current.container} />}
+				</ParallaxLayer>
+
+				<ParallaxLayer sticky={{ start: 1, end: 4 }}>
 					{parallax.current && parallax.current.container && (
 						<VisualiseImage containerRef={parallax.current.container} />
 					)}
+				</ParallaxLayer>
+
+				<ParallaxLayer sticky={{ start: 1, end: 4 }}>
 					{parallax.current && parallax.current.container && <AnalyseImage containerRef={parallax.current.container} />}
 				</ParallaxLayer>
 

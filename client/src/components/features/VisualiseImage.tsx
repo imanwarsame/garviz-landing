@@ -11,7 +11,7 @@ export default function VisualiseImage({ containerRef }: { containerRef: React.M
 		onChange: ({ value: { scrollYProgress } }) => {
 			console.log(scrollYProgress);
 
-			if (scrollYProgress > 0.3 && scrollYProgress < 0.5) {
+			if (scrollYProgress > 0.3 && scrollYProgress <= 0.5) {
 				setImageOpacity({ opacity: 1, transition: 'opacity 1s ease-in-out' });
 			} else {
 				setImageOpacity({ opacity: 0, transition: 'opacity 1s ease-in-out' });
@@ -31,11 +31,10 @@ export default function VisualiseImage({ containerRef }: { containerRef: React.M
 				...imageOpacity,
 				position: 'sticky',
 				top: '50%', //Centre vertically
-				right: '20%', //Adjust distance from the left
+				left: '5%', //Adjust distance from the left
 				transform: 'translateY(-50%)', //Shift upward by half of its height
 				width: '40%',
 				zIndex: 2,
-				border: 2,
 			}}
 		></Box>
 	);
