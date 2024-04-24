@@ -147,17 +147,17 @@ export default function Home() {
 					></Box>
 				</ParallaxLayer> */}
 
-				<ParallaxLayer sticky={{ start: 1, end: 4 }}>
+				<ParallaxLayer sticky={{ start: 0, end: 4 }}>
 					{parallax.current && parallax.current.container && <GatherImage containerRef={parallax.current.container} />}
 				</ParallaxLayer>
 
-				<ParallaxLayer sticky={{ start: 1, end: 4 }}>
+				<ParallaxLayer sticky={{ start: 0, end: 4 }}>
 					{parallax.current && parallax.current.container && (
 						<VisualiseImage containerRef={parallax.current.container} />
 					)}
 				</ParallaxLayer>
 
-				<ParallaxLayer sticky={{ start: 1, end: 4 }}>
+				<ParallaxLayer sticky={{ start: 0, end: 4 }}>
 					{parallax.current && parallax.current.container && <AnalyseImage containerRef={parallax.current.container} />}
 				</ParallaxLayer>
 

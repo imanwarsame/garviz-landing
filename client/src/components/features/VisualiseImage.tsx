@@ -4,13 +4,11 @@ import React, { useState } from 'react';
 import { useScroll } from '@react-spring/web';
 
 export default function VisualiseImage({ containerRef }: { containerRef: React.MutableRefObject<HTMLDivElement> }) {
-	const [imageOpacity, setImageOpacity] = useState<SxProps<Theme>>({ opacity: 1 });
+	const [imageOpacity, setImageOpacity] = useState<SxProps<Theme>>({ opacity: 0 });
 
 	useScroll({
 		container: containerRef,
 		onChange: ({ value: { scrollYProgress } }) => {
-			console.log(scrollYProgress);
-
 			if (scrollYProgress > 0.3 && scrollYProgress <= 0.5) {
 				setImageOpacity({ opacity: 1, transition: 'opacity 1s ease-in-out' });
 			} else {
