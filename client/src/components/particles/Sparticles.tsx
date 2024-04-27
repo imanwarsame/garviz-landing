@@ -80,7 +80,7 @@ export default function Sparticles() {
 						default: 'out',
 					},
 					random: false,
-					speed: 6,
+					speed: 3,
 					straight: false,
 				},
 				number: {
