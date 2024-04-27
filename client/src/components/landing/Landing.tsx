@@ -5,7 +5,7 @@ import animatedScrollLight from '../../assets/scroll-down-light.json';
 import { useDevStore } from '../../store';
 import { Element } from 'react-scroll';
 import { ParallaxLayer } from '@react-spring/parallax';
-import BackgroundImage from '../../assets/background.svg';
+import Sparticles from '../particles/Sparticles';
 
 export default function Landing() {
 	const { darkMode } = useDevStore();
@@ -19,12 +19,9 @@ export default function Landing() {
 					height: '100svh',
 					width: '100vw',
 					overflow: 'hidden',
-					backgroundImage: `url(${BackgroundImage})`,
-					backgroundSize: 'cover', // Adjust as needed
-					backgroundPosition: 'center', // Adjust as needed
 				}}
 			>
-				<ParallaxLayer speed={-0.25}>{/* <Scene /> */}</ParallaxLayer>
+				<Sparticles />
 				<Box component='div'>
 					<ParallaxLayer speed={2}>
 						<Box
