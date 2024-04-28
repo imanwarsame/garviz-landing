@@ -1,4 +1,4 @@
-import { AppBar, Stack, Toolbar, Typography } from '@mui/material';
+import { AppBar, Button, Stack, Toolbar, Typography } from '@mui/material';
 import DarkModeToggle from '../darkmode/DarkModeToggle';
 import NavigationLinks from './NavigationLinks';
 
@@ -50,6 +50,9 @@ export default function Navbar({ scrollTo }: { scrollTo: (index: number) => void
 				</Typography>
 				<NavigationLinks links={links} />
 				<Stack direction='row' spacing={1}>
+					<Button variant='outlined' sx={{ borderRadius: 8 }}>
+						Get started
+					</Button>
 					<DarkModeToggle />
 				</Stack>
 			</Toolbar>
