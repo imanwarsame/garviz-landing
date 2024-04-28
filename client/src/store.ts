@@ -9,8 +9,8 @@ export const useDevStore = create<StoreType>((set) => {
 	//Retrieve dark mode value from local storage
 	const savedDarkMode = localStorage.getItem('dark_mode_state');
 
-	//Determine default value based on local storage or default to false
-	const defaultDarkMode = savedDarkMode ? savedDarkMode === 'true' : false;
+	//Determine default value based on local storage or default to true
+	const defaultDarkMode = savedDarkMode ? savedDarkMode === 'true' : true;
 
 	return {
 		darkMode: defaultDarkMode,
