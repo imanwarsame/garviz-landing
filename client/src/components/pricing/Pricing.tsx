@@ -20,7 +20,7 @@ export default function Pricing() {
 			}}
 		>
 			<Typography variant='h2'>Pricing</Typography>
-			<Grid container spacing={3} sx={{ width: { xs: '90%', md: '50%' } }}>
+			<Grid container spacing={3} sx={{ width: { xs: '90%', md: '80%' } }}>
 				<Grid item xs={12} sm={6} md={4}>
 					<SinglePricePlan
 						title='Conference'

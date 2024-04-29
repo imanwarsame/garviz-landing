@@ -30,16 +30,18 @@ export default function SinglePricePlan({
 				backgroundColor: highlighted ? theme.palette.secondary.main : theme.palette.background.default,
 			}}
 		>
-			<Stack direction='column' spacing={2}>
-				<Typography fontWeight='bold' sx={{ typography: { xs: 'h6', md: 'h4' } }}>
+			<Stack direction='column' spacing={{ xs: 0.5, md: 2 }}>
+				<Typography fontWeight='bold' sx={{ typography: { xs: 'h5', md: 'h4' } }}>
 					{title}
 				</Typography>
-				<Typography fontWeight='bold' sx={{ typography: { xs: 'h4', md: 'h2' } }}>
+				<Typography fontWeight='bold' sx={{ typography: { xs: 'h6', md: 'h2' } }}>
 					{currency + value.toString()}
 				</Typography>
-				<Typography sx={{ typography: { xs: 'body1', md: 'h6' } }}>{summary}</Typography>
+				<Typography sx={{ display: { xs: 'none', md: 'block' }, typography: { xs: 'caption', md: 'h6' } }}>
+					{summary}
+				</Typography>
 				<Stack direction='column'>
-					<Typography fontWeight='bold' sx={{ typography: { xs: 'caption', md: 'body1' } }}>
+					<Typography fontWeight='bold' sx={{ typography: { xs: 'body2', md: 'body1' } }}>
 						What&apos;s included
 					</Typography>
 					{whatsIncluded.map((item, index) => (
