@@ -28,10 +28,10 @@ export default function AnalyseImage({ containerRef }: { containerRef: React.Mut
 			sx={{
 				...imageOpacity,
 				position: 'sticky',
+				width: '40vw',
 				top: '50%', //Centre vertically
 				left: '5%', //Adjust distance from the left
 				transform: 'translateY(-50%)', //Shift upward by half of its height
-				width: '40%',
 				zIndex: 2,
 			}}
 		></Box>

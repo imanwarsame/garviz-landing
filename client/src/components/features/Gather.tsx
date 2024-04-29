@@ -23,6 +23,7 @@ export default function Gather() {
 						component='div'
 						sx={{
 							position: 'absolute',
+							width: '40vw',
 							top: '50%', //Centre vertically
 							right: '5%', //Adjust distance from the right
 							transform: 'translateY(-50%)', //Shift upward by half of its height
@@ -32,10 +33,10 @@ export default function Gather() {
 						}}
 					>
 						<Stack direction='column' spacing={1}>
-							<Typography fontWeight='bold' sx={{ typography: { xs: 'h4', md: 'h2' } }}>
+							<Typography fontWeight='bold' sx={{ typography: { xs: 'h5', md: 'h2' } }}>
 								Gather
 							</Typography>
-							<Typography sx={{ typography: { xs: 'body2', md: 'h6' } }}>
+							<Typography sx={{ typography: { xs: 'caption', md: 'h6' } }}>
 								An intuitive platform to gather all the raw data for your team
 							</Typography>
 						</Stack>
