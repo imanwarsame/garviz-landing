@@ -44,15 +44,10 @@ export default function Landing() {
 									backgroundColor: 'transparent',
 									paddingBottom: '10px',
 									paddingX: '8px',
-									whiteSpace: 'nowrap',
+									width: '90vw',
 								}}
 							>
-								<Typography
-									fontWeight='bold'
-									sx={{
-										typography: { xs: 'h4', md: 'h2' },
-									}}
-								>
+								<Typography fontWeight='bold' sx={{ typography: { xs: 'h4', md: 'h2' } }}>
 									Elevate your game to another planet
 								</Typography>
 								<Typography
