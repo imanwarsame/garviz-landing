@@ -28,13 +28,13 @@ export default function Home() {
 			<Hidden mdDown>
 				{parallax.current && parallax.current.scrollTo && <Navbar scrollTo={parallax.current.scrollTo} />}
 			</Hidden>
-			<Parallax ref={parallax} pages={6}>
+			<Parallax ref={parallax} pages={7}>
 				<ParallaxLayer offset={1} speed={1} style={{ backgroundColor: theme.palette.background.paper }} />
 				<ParallaxLayer offset={2} speed={1} style={{ backgroundColor: theme.palette.background.paper }} />
 				<ParallaxLayer offset={3} speed={1} style={{ backgroundColor: theme.palette.background.paper }} />
-				<ParallaxLayer offset={4} speed={1} style={{ backgroundColor: theme.palette.background.paper }} />
 				<ParallaxLayer offset={5} speed={1} style={{ backgroundColor: theme.palette.background.paper }} />
 				<ParallaxLayer offset={6} speed={1} style={{ backgroundColor: theme.palette.background.paper }} />
+				<ParallaxLayer offset={7} speed={1} style={{ backgroundColor: theme.palette.background.paper }} />
 
 				{/* <ParallaxLayer
 					offset={0}
@@ -215,7 +215,7 @@ export default function Home() {
 
 				{/* This is page 5*/}
 				<ParallaxLayer
-					offset={4}
+					offset={5}
 					speed={0}
 					style={{
 						display: 'flex',
@@ -228,7 +228,7 @@ export default function Home() {
 
 				{/* This is page 6*/}
 				<ParallaxLayer
-					offset={5}
+					offset={6}
 					speed={0}
 					style={{
 						display: 'flex',

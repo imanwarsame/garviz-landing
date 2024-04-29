@@ -1,4 +1,4 @@
-import { Box, Grid, Typography } from '@mui/material';
+import { Box, Button, Grid, Typography } from '@mui/material';
 import SinglePricePlan from './SinglePricePlan';
 
 export default function Pricing() {
@@ -6,7 +6,7 @@ export default function Pricing() {
 		<Box
 			component='div'
 			sx={{
-				height: '100lvh',
+				height: '100vh',
 				width: '100vw',
 				overflow: 'hidden',
 				display: 'flex',
@@ -16,11 +16,11 @@ export default function Pricing() {
 				gap: '40px',
 				textAlign: 'center',
 				position: 'relative',
-				paddingTop: '50px',
+				paddingY: '50px',
 			}}
 		>
 			<Typography variant='h2'>Pricing</Typography>
-			<Grid container spacing={3} sx={{ width: '50%' }}>
+			<Grid container spacing={3} sx={{ width: { xs: '90%', md: '50%' } }}>
 				<Grid item xs={12} sm={6} md={4}>
 					<SinglePricePlan
 						title='Conference'
@@ -48,6 +48,15 @@ export default function Pricing() {
 						summary='Advanced features and premium support for professionals.'
 						whatsIncluded={['Access to premium features', '24/7 priority support']}
 					/>
+				</Grid>
+				<Grid item xs={12}>
+					<Button
+						variant='contained'
+						onClick={() => console.log('Get started')}
+						sx={{ borderRadius: 8, width: '100%' }}
+					>
+						Get started
+					</Button>
 				</Grid>
 			</Grid>
 		</Box>

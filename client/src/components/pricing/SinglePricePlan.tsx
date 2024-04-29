@@ -1,4 +1,4 @@
-import { Button, Paper, Stack, Typography, useTheme } from '@mui/material';
+import { Paper, Stack, Typography, useTheme } from '@mui/material';
 
 interface SinglePricePlanProps {
 	title: string;
@@ -38,9 +38,6 @@ export default function SinglePricePlan({
 					{currency + value.toString()}
 				</Typography>
 				<Typography sx={{ typography: { xs: 'body1', md: 'h6' } }}>{summary}</Typography>
-				<Button variant={highlighted ? 'contained' : 'outlined'} color='primary' disableElevation>
-					Get started
-				</Button>
 				<Stack direction='column'>
 					<Typography fontWeight='bold' sx={{ typography: { xs: 'caption', md: 'body1' } }}>
 						What&apos;s included
