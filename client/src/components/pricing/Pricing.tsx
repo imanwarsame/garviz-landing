@@ -49,9 +49,13 @@ export default function Pricing() {
 						whatsIncluded={['Access to premium features', '24/7 priority support']}
 					/>
 				</Grid>
-				<Grid item xs={12}>
+				<Grid item xs={4}>
+					{/* This is a spacer to make sure the button is in the middle */}
+				</Grid>
+				<Grid item xs={4}>
 					<Button
 						variant='contained'
+						size='large'
 						onClick={() => console.log('Get started')}
 						sx={{ borderRadius: 8, width: '100%' }}
 					>
