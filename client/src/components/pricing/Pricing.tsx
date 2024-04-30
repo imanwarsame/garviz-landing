@@ -19,7 +19,7 @@ export default function Pricing() {
 				paddingY: '50px',
 			}}
 		>
-			<Typography variant='h2'>Pricing</Typography>
+			<Typography sx={{ typography: { xs: 'h3', md: 'h2' } }}>Pricing</Typography>
 			<Grid container spacing={3} sx={{ width: { xs: '90%', md: '80%' } }}>
 				<Grid item xs={12} md={4}>
 					<SinglePricePlan
