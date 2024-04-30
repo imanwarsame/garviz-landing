@@ -22,7 +22,7 @@ export default function MobileHome() {
 						overflow: 'hidden',
 					}}
 				>
-					<Sparticles />
+					<Sparticles canInteract={false} />
 					<Landing />
 				</Box>
 				<Box
