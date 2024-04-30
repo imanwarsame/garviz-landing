@@ -32,7 +32,7 @@ export default function MobileHome() {
 				<Visualise />
 				<Analyse />
 				<Pricing />
-				<Box component='div' sx={{ background: 'transparent', backdropFilter: 'blur(5px)' }}>
+				<Box component='div' sx={{ background: 'transparent', backdropFilter: 'blur(3px)' }}>
 					<Contact />
 				</Box>
 			</Stack>

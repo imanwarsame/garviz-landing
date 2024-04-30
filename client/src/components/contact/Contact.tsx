@@ -1,7 +1,6 @@
 import React, { useRef } from 'react';
 import emailjs from '@emailjs/browser';
 import { TextField, Button, Box, Grid, Typography } from '@mui/material';
-import { Element } from 'react-scroll';
 
 export default function Contact() {
 	const form = useRef<HTMLFormElement>(null);
@@ -35,69 +34,58 @@ export default function Contact() {
 	};
 
 	return (
-		<Element name='contact_element'>
-			<Box
-				component='div'
+		<Box
+			component='div'
+			sx={{
+				height: '100lvh',
+				width: '100vw',
+				overflow: 'hidden',
+				display: 'flex',
+				flexDirection: 'column',
+				alignItems: 'center',
+				justifyContent: 'center',
+				position: 'relative',
+				paddingTop: '50px',
+			}}
+		>
+			<Typography variant='h4'>Get in touch!</Typography>
+			<form ref={form} onSubmit={sendEmail} className='contact_form'>
+				<Grid container spacing={2} sx={{ padding: 10 }}>
+					<Grid item xs={12} md={6}>
+						<TextField required fullWidth type='text' name='user_name' id='user_name' label='Name' />
+					</Grid>
+					<Grid item xs={12} md={6}>
+						<TextField required fullWidth type='email' name='user_email' id='user_email' label='Email' />
+					</Grid>
+					<Grid item xs={12}>
+						<TextField required fullWidth type='text' name='message' id='message' label='Message' multiline rows={4} />
+					</Grid>
+					<Grid item xs={12}>
+						<Button
+							disableElevation
+							color='secondary'
+							type='submit'
+							variant='contained'
+							aria-label='submit-contact-form-button'
+						>
+							Submit
+						</Button>
+					</Grid>
+				</Grid>
+			</form>
+			<Typography
 				sx={{
-					height: '100lvh',
-					width: '100vw',
-					overflow: 'hidden',
-					display: 'flex',
-					flexDirection: 'column',
-					alignItems: 'center',
-					justifyContent: 'center',
-					position: 'relative',
-					paddingTop: '50px',
+					position: 'absolute',
+					transform: 'translateX(-50%)',
+					bottom: 0,
+					left: '50%',
+					typography: { xs: 'caption' },
+					textAlign: 'center',
+					padding: '5px',
 				}}
 			>
-				<Typography variant='h4'>Get in touch!</Typography>
-				<form ref={form} onSubmit={sendEmail} className='contact_form'>
-					<Grid container spacing={2} sx={{ padding: 10 }}>
-						<Grid item xs={12} md={6}>
-							<TextField required fullWidth type='text' name='user_name' id='user_name' label='Name' />
-						</Grid>
-						<Grid item xs={12} md={6}>
-							<TextField required fullWidth type='email' name='user_email' id='user_email' label='Email' />
-						</Grid>
-						<Grid item xs={12}>
-							<TextField
-								required
-								fullWidth
-								type='text'
-								name='message'
-								id='message'
-								label='Message'
-								multiline
-								rows={4}
-							/>
-						</Grid>
-						<Grid item xs={12}>
-							<Button
-								disableElevation
-								color='secondary'
-								type='submit'
-								variant='contained'
-								aria-label='submit-contact-form-button'
-							>
-								Submit
-							</Button>
-						</Grid>
-					</Grid>
-				</form>
-				<Typography
-					sx={{
-						position: 'absolute',
-						transform: 'translateX(-50%)',
-						bottom: 0,
-						left: '50%',
-						typography: { xs: 'caption' },
-						textAlign: 'center',
-						padding: '5px',
-					}}
-				>
-					{'Garviz ' + copyrightText}
-				</Typography>
-			</Box>
-		</Element>
+				{'Garviz ' + copyrightText}
+			</Typography>
+		</Box>
 	);
 }
