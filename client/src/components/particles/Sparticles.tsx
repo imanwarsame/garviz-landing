@@ -4,12 +4,13 @@ import { type Container, type ISourceOptions } from '@tsparticles/engine';
 // import { loadAll } from "@tsparticles/all"; // if you are going to use `loadAll`, install the "@tsparticles/all" package too.
 // import { loadFull } from "tsparticles"; // if you are going to use `loadFull`, install the "tsparticles" package too.
 import { loadSlim } from '@tsparticles/slim'; // if you are going to use `loadSlim`, install the "@tsparticles/slim" package too.
-import { useTheme } from '@mui/material';
+import { useMediaQuery, useTheme } from '@mui/material';
 // import { loadBasic } from "@tsparticles/basic"; // if you are going to use `loadBasic`, install the "@tsparticles/basic" package too.
 
 //This is the particles component for the landing page, naming particles would cause import errors
 export default function Sparticles() {
 	const theme = useTheme();
+	const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
 	const [init, setInit] = useState(false);
 
 	// this should be run only once per application lifetime
@@ -44,11 +45,11 @@ export default function Sparticles() {
 			interactivity: {
 				events: {
 					onClick: {
-						enable: true,
+						enable: !isSmallScreen,
 						mode: 'push',
 					},
 					onHover: {
-						enable: true,
+						enable: !isSmallScreen,
 						mode: 'repulse',
 					},
 				},

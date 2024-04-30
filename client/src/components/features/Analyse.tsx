@@ -1,9 +1,19 @@
 import { Box, Stack, Typography } from '@mui/material';
-import { ParallaxLayer } from '@react-spring/parallax';
 
 export default function Analyse() {
 	return (
-		<ParallaxLayer speed={0}>
+		<Box
+			component='div'
+			sx={{
+				position: 'relative',
+				height: '100vh',
+				width: '100vw',
+				overflow: 'hidden',
+				display: 'flex',
+				flexDirection: 'row',
+				justifyContent: 'space-between',
+			}}
+		>
 			<Box
 				aria-label='analyse-feature-text'
 				component='div'
@@ -27,6 +37,6 @@ export default function Analyse() {
 					</Typography>
 				</Stack>
 			</Box>
-		</ParallaxLayer>
+		</Box>
 	);
 }

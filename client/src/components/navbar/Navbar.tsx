@@ -10,11 +10,11 @@ export default function Navbar({ scrollTo }: { scrollTo: (index: number) => void
 		},
 		{
 			title: 'Pricing',
-			action: async () => scrollTo(4),
+			action: async () => scrollTo(5),
 		},
 		{
 			title: 'Contact',
-			action: async () => scrollTo(5),
+			action: async () => scrollTo(6),
 		},
 	];
 
@@ -26,6 +26,7 @@ export default function Navbar({ scrollTo }: { scrollTo: (index: number) => void
 				boxShadow: 0,
 				borderRadius: 0,
 				background: 'transparent',
+				backdropFilter: 'blur(20px)',
 				zIndex: 2,
 			}}
 		>

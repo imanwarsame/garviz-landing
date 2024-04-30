@@ -1,6 +1,5 @@
 import { Box, Stack, Typography } from '@mui/material';
 import { Element } from 'react-scroll';
-import { ParallaxLayer } from '@react-spring/parallax';
 
 export default function Gather() {
 	return (
@@ -17,31 +16,29 @@ export default function Gather() {
 					justifyContent: 'space-between',
 				}}
 			>
-				<ParallaxLayer speed={0}>
-					<Box
-						aria-label='gather-feature-text'
-						component='div'
-						sx={{
-							position: 'absolute',
-							width: '40vw',
-							top: '50%', //Centre vertically
-							right: '5%', //Adjust distance from the right
-							transform: 'translateY(-50%)', //Shift upward by half of its height
-							textAlign: 'right', //Align text to the right
-							paddingRight: '5%', //Add padding to the right for spacing
-							zIndex: 2,
-						}}
-					>
-						<Stack direction='column' spacing={1}>
-							<Typography fontWeight='bold' sx={{ typography: { xs: 'h5', md: 'h2' } }}>
-								Gather
-							</Typography>
-							<Typography sx={{ typography: { xs: 'caption', md: 'h6' } }}>
-								An intuitive platform to gather all the raw data for your team
-							</Typography>
-						</Stack>
-					</Box>
-				</ParallaxLayer>
+				<Box
+					aria-label='gather-feature-text'
+					component='div'
+					sx={{
+						position: 'absolute',
+						width: '40vw',
+						top: '50%', //Centre vertically
+						right: '5%', //Adjust distance from the right
+						transform: 'translateY(-50%)', //Shift upward by half of its height
+						textAlign: 'right', //Align text to the right
+						paddingRight: '5%', //Add padding to the right for spacing
+						zIndex: 2,
+					}}
+				>
+					<Stack direction='column' spacing={1}>
+						<Typography fontWeight='bold' sx={{ typography: { xs: 'h5', md: 'h2' } }}>
+							Gather
+						</Typography>
+						<Typography sx={{ typography: { xs: 'caption', md: 'h6' } }}>
+							An intuitive platform to gather all the raw data for your team
+						</Typography>
+					</Stack>
+				</Box>
 			</Box>
 		</Element>
 	);

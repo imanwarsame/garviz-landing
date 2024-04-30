@@ -1,4 +1,4 @@
-import { ThemeProvider, CssBaseline } from '@mui/material';
+import { ThemeProvider, CssBaseline, Hidden } from '@mui/material';
 import { lightTheme, darkTheme } from '../theme';
 import { useDevStore } from './store';
 import { useEffect, useState } from 'react';
@@ -6,6 +6,7 @@ import Splash from './components/splash/Splash';
 import { AnimatePresence } from 'framer-motion';
 import Home from './components/home/Home';
 import { Routes, Route, useLocation } from 'react-router-dom';
+import MobileHome from './components/home/MobileHome';
 
 export default function App() {
 	const { darkMode } = useDevStore();
@@ -47,7 +48,19 @@ export default function App() {
 			<CssBaseline enableColorScheme />
 			<AnimatePresence mode='wait'>{location.pathname === '/' && loading && <Splash />}</AnimatePresence>
 			<Routes>
-				<Route path='/' element={<Home />} />
+				<Route
+					path='/'
+					element={
+						<>
+							<Hidden mdUp>
+								<MobileHome />
+							</Hidden>
+							<Hidden mdDown>
+								<Home />
+							</Hidden>
+						</>
+					}
+				/>
 			</Routes>
 		</ThemeProvider>
 	);

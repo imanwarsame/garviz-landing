@@ -1,4 +1,4 @@
-import { Box, Hidden, useTheme } from '@mui/material';
+import { Box, useTheme } from '@mui/material';
 import { Parallax, ParallaxLayer, IParallax } from '@react-spring/parallax';
 import { useRef } from 'react';
 import Landing from '../landing/Landing';
@@ -10,11 +10,11 @@ import Visualise from '../features/Visualise';
 import Analyse from '../features/Analyse';
 import Pricing from '../pricing/Pricing';
 import Contact from '../contact/Contact';
-import MobileNavbar from '../mobilenavbar/MobileNavbar';
 import Navbar from '../navbar/Navbar';
 import GatherImage from '../features/GatherImage';
 import VisualiseImage from '../features/VisualiseImage';
 import AnalyseImage from '../features/AnalyseImage';
+import Sparticles from '../particles/Sparticles';
 
 export default function Home() {
 	const parallax = useRef<IParallax>(null!);
@@ -22,13 +22,10 @@ export default function Home() {
 
 	return (
 		<Box component='div' sx={{ overflowY: 'scroll' }}>
-			<Hidden mdUp>
-				{parallax.current && parallax.current.scrollTo && <MobileNavbar scrollTo={parallax.current.scrollTo} />}
-			</Hidden>
-			<Hidden mdDown>
-				{parallax.current && parallax.current.scrollTo && <Navbar scrollTo={parallax.current.scrollTo} />}
-			</Hidden>
+			{parallax.current && parallax.current.scrollTo && <Navbar scrollTo={parallax.current.scrollTo} />}
+
 			<Parallax ref={parallax} pages={7}>
+				{/* These are the paper backgrounds behind each section */}
 				<ParallaxLayer offset={1} speed={1} style={{ backgroundColor: theme.palette.background.paper }} />
 				<ParallaxLayer offset={2} speed={1} style={{ backgroundColor: theme.palette.background.paper }} />
 				<ParallaxLayer offset={3} speed={1} style={{ backgroundColor: theme.palette.background.paper }} />
@@ -36,117 +33,7 @@ export default function Home() {
 				<ParallaxLayer offset={6} speed={1} style={{ backgroundColor: theme.palette.background.paper }} />
 				<ParallaxLayer offset={7} speed={1} style={{ backgroundColor: theme.palette.background.paper }} />
 
-				{/* <ParallaxLayer
-					offset={0}
-					speed={0}
-					factor={5}
-					style={{
-						backgroundImage: url('stars', true),
-						backgroundSize: 'cover',
-					}}
-				/> */}
-
-				{/* <ParallaxLayer offset={1.3} speed={-0.3} style={{ pointerEvents: 'none' }}>
-					<img src={url('satellite4')} style={{ width: '15%', marginLeft: '70%' }} />
-				</ParallaxLayer>
-
-				<ParallaxLayer offset={1} speed={0.8} style={{ opacity: 0.1 }}>
-					<img src={url('cloud')} style={{ display: 'block', width: '20%', marginLeft: '55%' }} />
-					<img src={url('cloud')} style={{ display: 'block', width: '10%', marginLeft: '15%' }} />
-				</ParallaxLayer>
-
-				<ParallaxLayer offset={1.75} speed={0.5} style={{ opacity: 0.1 }}>
-					<img src={url('cloud')} style={{ display: 'block', width: '20%', marginLeft: '70%' }} />
-					<img src={url('cloud')} style={{ display: 'block', width: '20%', marginLeft: '40%' }} />
-				</ParallaxLayer>
-
-				<ParallaxLayer offset={1} speed={0.2} style={{ opacity: 0.2 }}>
-					<img src={url('cloud')} style={{ display: 'block', width: '10%', marginLeft: '10%' }} />
-					<img src={url('cloud')} style={{ display: 'block', width: '20%', marginLeft: '75%' }} />
-				</ParallaxLayer>
-
-				<ParallaxLayer offset={1.6} speed={-0.1} style={{ opacity: 0.4 }}>
-					<img src={url('cloud')} style={{ display: 'block', width: '20%', marginLeft: '60%' }} />
-					<img src={url('cloud')} style={{ display: 'block', width: '25%', marginLeft: '30%' }} />
-					<img src={url('cloud')} style={{ display: 'block', width: '10%', marginLeft: '80%' }} />
-				</ParallaxLayer>
-
-				<ParallaxLayer offset={2.6} speed={0.4} style={{ opacity: 0.6 }}>
-					<img src={url('cloud')} style={{ display: 'block', width: '20%', marginLeft: '5%' }} />
-					<img src={url('cloud')} style={{ display: 'block', width: '15%', marginLeft: '75%' }} />
-				</ParallaxLayer> */}
-
-				{/* <ParallaxLayer
-					offset={2.5}
-					speed={-0.4}
-					style={{
-						display: 'flex',
-						alignItems: 'center',
-						justifyContent: 'center',
-						pointerEvents: 'none',
-					}}
-				>
-					<img src={url('earth')} style={{ width: '60%' }} />
-				</ParallaxLayer> */}
-
-				{/* <ParallaxLayer
-					offset={2}
-					speed={-0.3}
-					style={{
-						backgroundSize: '80%',
-						backgroundPosition: 'center',
-						backgroundImage: url('clients', true),
-					}}
-				/> */}
-
-				{/* <animated.div style={textStyles}>
-					<Box
-						aria-label='gather-feature-image'
-						component='img'
-						src={GatherImage}
-						sx={{
-							position: 'absolute',
-							top: '50%', //Centre vertically
-							left: '5%', //Adjust distance from the left
-							transform: 'translateY(-50%)', //Shift upward by half of its height
-							width: '40%',
-							zIndex: 2,
-						}}
-					></Box>
-				</animated.div> */}
-
-				{/* <ParallaxLayer offset={2} speed={-0.05}>
-					<Box
-						aria-label='visualise-feature-image'
-						component='img'
-						src={VisualiseImage}
-						sx={{
-							position: 'absolute',
-							top: '50%', //Centre vertically
-							left: '5%', //Adjust distance from the left
-							transform: 'translateY(-50%)', //Shift upward by half of its height
-							width: '40%',
-							zIndex: 2,
-						}}
-					></Box>
-				</ParallaxLayer> */}
-
-				{/* <ParallaxLayer offset={3} speed={-0.05}>
-					<Box
-						aria-label='analyse-feature-image'
-						component='img'
-						src={AnalyseImage}
-						sx={{
-							position: 'absolute',
-							top: '50%', //Centre vertically
-							left: '5%', //Adjust distance from the left
-							transform: 'translateY(-50%)', //Shift upward by half of its height
-							width: '40%',
-							zIndex: 2,
-						}}
-					></Box>
-				</ParallaxLayer> */}
-
+				{/* Sticky images */}
 				<ParallaxLayer sticky={{ start: 0, end: 4 }}>
 					{parallax.current && parallax.current.container && <GatherImage containerRef={parallax.current.container} />}
 				</ParallaxLayer>
@@ -171,7 +58,20 @@ export default function Home() {
 						justifyContent: 'center',
 					}}
 				>
-					<Landing />
+					<Box
+						component='div'
+						sx={{
+							position: 'relative',
+							height: '100svh',
+							width: '100vw',
+							overflow: 'hidden',
+						}}
+					>
+						<Sparticles />
+						<ParallaxLayer speed={2}>
+							<Landing />
+						</ParallaxLayer>
+					</Box>
 				</ParallaxLayer>
 
 				{/* This is page 2 */}

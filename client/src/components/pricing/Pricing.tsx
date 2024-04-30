@@ -6,6 +6,7 @@ export default function Pricing() {
 		<Box
 			component='div'
 			sx={{
+				position: 'relative',
 				height: '100vh',
 				width: '100vw',
 				overflow: 'hidden',
@@ -15,13 +16,12 @@ export default function Pricing() {
 				justifyContent: 'center',
 				gap: '40px',
 				textAlign: 'center',
-				position: 'relative',
 				paddingY: '50px',
 			}}
 		>
 			<Typography variant='h2'>Pricing</Typography>
 			<Grid container spacing={3} sx={{ width: { xs: '90%', md: '80%' } }}>
-				<Grid item xs={12} sm={6} md={4}>
+				<Grid item xs={12} md={4}>
 					<SinglePricePlan
 						title='Conference'
 						currency='£'
@@ -30,7 +30,7 @@ export default function Pricing() {
 						whatsIncluded={['Access to basic features', 'Limited support']}
 					/>
 				</Grid>
-				<Grid item xs={12} sm={6} md={4}>
+				<Grid item xs={12} md={4}>
 					<SinglePricePlan
 						title='Europa'
 						currency='£'
@@ -40,7 +40,7 @@ export default function Pricing() {
 						highlighted={true}
 					/>
 				</Grid>
-				<Grid item xs={12} sm={6} md={4}>
+				<Grid item xs={12} md={4}>
 					<SinglePricePlan
 						title='Champions'
 						currency='£'
@@ -49,10 +49,10 @@ export default function Pricing() {
 						whatsIncluded={['Access to premium features', '24/7 priority support']}
 					/>
 				</Grid>
-				<Grid item xs={4}>
+				<Grid item xs={0} md={4}>
 					{/* This is a spacer to make sure the button is in the middle */}
 				</Grid>
-				<Grid item xs={4}>
+				<Grid item xs={12} md={4}>
 					<Button
 						variant='contained'
 						size='large'
