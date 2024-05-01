@@ -2,9 +2,9 @@ import { useEffect, useMemo, useState } from 'react';
 import Particles, { initParticlesEngine } from '@tsparticles/react';
 import { type Container, type ISourceOptions } from '@tsparticles/engine';
 // import { loadAll } from "@tsparticles/all"; // if you are going to use `loadAll`, install the "@tsparticles/all" package too.
-// import { loadFull } from "tsparticles"; // if you are going to use `loadFull`, install the "tsparticles" package too.
+import { loadFull } from 'tsparticles'; // if you are going to use `loadFull`, install the "tsparticles" package too.
 // import { loadBasic } from "@tsparticles/basic"; // if you are going to use `loadBasic`, install the "@tsparticles/basic" package too.
-import { loadSlim } from '@tsparticles/slim'; // if you are going to use `loadSlim`, install the "@tsparticles/slim" package too.
+// import { loadSlim } from '@tsparticles/slim'; // if you are going to use `loadSlim`, install the "@tsparticles/slim" package too.
 import { useTheme } from '@mui/material';
 
 //This is the particles component for the landing page, naming particles would cause import errors
@@ -20,7 +20,7 @@ export default function Sparticles({ canInteract = true }: { canInteract: boolea
 			// starting from v2 you can add only the features you need reducing the bundle size
 			//await loadAll(engine);
 			//await loadFull(engine);
-			await loadSlim(engine);
+			await loadFull(engine);
 			//await loadBasic(engine);
 		}).then(() => {
 			setInit(true);
