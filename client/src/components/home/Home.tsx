@@ -67,7 +67,7 @@ export default function Home() {
 							overflow: 'hidden',
 						}}
 					>
-						<Sparticles />
+						<Sparticles canInteract={true} />
 						<ParallaxLayer speed={2}>
 							<Landing />
 						</ParallaxLayer>
