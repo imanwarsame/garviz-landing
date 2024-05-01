@@ -1,4 +1,4 @@
-import { Box, Stack, Typography } from '@mui/material';
+import { Box, Button, Hidden, Stack, Typography } from '@mui/material';
 import Lottie from 'lottie-react';
 import animatedScrollDark from '../../assets/scroll-down-dark.json';
 import animatedScrollLight from '../../assets/scroll-down-light.json';
@@ -30,6 +30,8 @@ export default function Landing() {
 						paddingBottom: '10px',
 						paddingX: '8px',
 						width: '90vw',
+						display: 'flex',
+						alignItems: 'center',
 					}}
 				>
 					<Typography fontWeight='bold' sx={{ typography: { xs: 'h4', md: 'h2' } }}>
@@ -42,6 +44,16 @@ export default function Landing() {
 					>
 						Use data to take your team to the next level. Gather. Visualise. Analyse.
 					</Typography>
+					<Hidden mdUp>
+						<Button
+							variant='contained'
+							disableElevation
+							sx={{ borderRadius: 8, width: '50%' }}
+							onClick={() => console.log('Get started')}
+						>
+							Get started
+						</Button>
+					</Hidden>
 				</Stack>
 			</Box>
 			<Box
