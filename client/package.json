@@ -27,7 +27,7 @@
 		"@tsparticles/basic": "^3.4.0",
 		"@tsparticles/engine": "^3.3.0",
 		"@tsparticles/react": "^3.0.0",
-		"@tsparticles/slim": "^3.3.0",
+		"@tsparticles/slim": "^3.4.0",
 		"framer-motion": "^11.0.24",
 		"lamina": "^1.1.23",
 		"lottie-react": "^2.4.0",
