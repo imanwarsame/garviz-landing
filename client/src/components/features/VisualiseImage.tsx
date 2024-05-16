@@ -9,7 +9,7 @@ export default function VisualiseImage({ containerRef }: { containerRef: React.M
 	useScroll({
 		container: containerRef,
 		onChange: ({ value: { scrollYProgress } }) => {
-			if (scrollYProgress > 0.3 && scrollYProgress <= 0.5) {
+			if (scrollYProgress > 0.29 && scrollYProgress <= 0.5) {
 				setImageOpacity({ opacity: 1, transition: 'opacity 0.5s ease-in-out' });
 			} else {
 				setImageOpacity({ opacity: 0, transition: 'opacity 0.5s ease-in-out' });

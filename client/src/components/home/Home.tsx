@@ -24,7 +24,7 @@ export default function Home() {
 		<Box component='div' sx={{ overflowY: 'scroll' }}>
 			{parallax.current && parallax.current.scrollTo && <Navbar scrollTo={parallax.current.scrollTo} />}
 
-			<Parallax ref={parallax} pages={7}>
+			<Parallax ref={parallax} pages={6}>
 				{/* These are the paper backgrounds behind each section */}
 				<ParallaxLayer offset={1} speed={1} style={{ backgroundColor: theme.palette.background.paper }} />
 				<ParallaxLayer offset={2} speed={1} style={{ backgroundColor: theme.palette.background.paper }} />
@@ -115,7 +115,7 @@ export default function Home() {
 
 				{/* This is page 5*/}
 				<ParallaxLayer
-					offset={5}
+					offset={4}
 					speed={0}
 					style={{
 						display: 'flex',
@@ -128,7 +128,7 @@ export default function Home() {
 
 				{/* This is page 6*/}
 				<ParallaxLayer
-					offset={6}
+					offset={5}
 					speed={0}
 					style={{
 						display: 'flex',

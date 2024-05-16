@@ -9,7 +9,7 @@ export default function GatherImage({ containerRef }: { containerRef: React.Muta
 	useScroll({
 		container: containerRef,
 		onChange: ({ value: { scrollYProgress } }) => {
-			if (scrollYProgress > 0.15 && scrollYProgress <= 0.3) {
+			if (scrollYProgress > 0.18 && scrollYProgress <= 0.29) {
 				setImageOpacity({ opacity: 1, transition: 'opacity 0.5s ease-in-out' });
 			} else {
 				setImageOpacity({ opacity: 0, transition: 'opacity 0.5s ease-in-out' });

@@ -9,7 +9,7 @@ export default function AnalyseImage({ containerRef }: { containerRef: React.Mut
 	useScroll({
 		container: containerRef,
 		onChange: ({ value: { scrollYProgress } }) => {
-			if (scrollYProgress > 0.5 && scrollYProgress < 0.6) {
+			if (scrollYProgress > 0.5 && scrollYProgress < 0.65) {
 				setImageOpacity({ opacity: 1, transition: 'opacity 0.5s ease-in-out' });
 			} else {
 				setImageOpacity({ opacity: 0, transition: 'opacity 0.5s ease-in-out' });
