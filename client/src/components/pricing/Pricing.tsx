@@ -7,7 +7,7 @@ export default function Pricing() {
 			component='div'
 			sx={{
 				position: 'relative',
-				height: '100vh',
+				height: '150vh',
 				width: '100vw',
 				overflow: 'hidden',
 				display: 'flex',
