@@ -39,7 +39,7 @@ export default function Landing() {
 					</Typography>
 					<Typography
 						sx={{
-							typography: { xs: 'body2', md: 'h6' },
+							typography: { xs: 'body2', md: 'h6', paddingBottom: '50px' },
 						}}
 					>
 						Use data to take your team to the next level. Gather. Visualise. Analyse.
