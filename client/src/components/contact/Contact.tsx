@@ -12,17 +12,18 @@ export default function Contact() {
 	 */
 	const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
-
+		console.log(form)
 		if (form.current) {
 			emailjs
 				.sendForm(
-					import.meta.env.VITE_EMAILJS_SERVICE_ID,
-					import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+					"service_q8iijln",
+					"template_sn7ftxx",
 					form.current,
-					import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
+					"LnvLlB7bX1XhwLjLd",
 				)
 				.then(
 					(result) => {
+						console.log(form.current)
 						console.log(result.text);
 						form.current?.reset();
 					},
@@ -52,10 +53,10 @@ export default function Contact() {
 			<form ref={form} onSubmit={sendEmail} className='contact_form'>
 				<Grid container spacing={2} sx={{ padding: 10 }}>
 					<Grid item xs={12} md={6}>
-						<TextField required fullWidth type='text' name='user_name' id='user_name' label='Name' />
+						<TextField required fullWidth type='text' name='from_name' id='from_name' label='Name' />
 					</Grid>
 					<Grid item xs={12} md={6}>
-						<TextField required fullWidth type='email' name='user_email' id='user_email' label='Email' />
+						<TextField required fullWidth type='email' name='from_email' id='from_email' label='Email' />
 					</Grid>
 					<Grid item xs={12}>
 						<TextField required fullWidth type='text' name='message' id='message' label='Message' multiline rows={4} />

@@ -35,7 +35,7 @@ export default function Landing() {
 					}}
 				>
 					<Typography fontWeight='bold' sx={{ typography: { xs: 'h4', md: 'h2' } }}>
-						Elevate your game to another planet
+						ELEVATE YOUR GAME
 					</Typography>
 					<Typography
 						sx={{
@@ -49,9 +49,9 @@ export default function Landing() {
 							variant='contained'
 							disableElevation
 							sx={{ borderRadius: 8, width: '50%' }}
-							onClick={() => console.log('Get started')}
+							onClick={() => console.log('')}
 						>
-							Get started
+							COMING SOON
 						</Button>
 					</Hidden>
 				</Stack>

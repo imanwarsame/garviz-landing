@@ -33,7 +33,7 @@ export default function Visualise() {
 						Visualise
 					</Typography>
 					<Typography sx={{ typography: { xs: 'caption', md: 'h6' } }}>
-						Easily visualise how your team is performing and where you can improve
+						Create reports with the click of a button based on custom metrics
 					</Typography>
 				</Stack>
 			</Box>

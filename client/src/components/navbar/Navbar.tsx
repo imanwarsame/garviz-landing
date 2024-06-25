@@ -8,10 +8,10 @@ export default function Navbar({ scrollTo }: { scrollTo: (index: number) => void
 			title: 'Features',
 			action: async () => scrollTo(1),
 		},
-		{
-			title: 'Pricing',
-			action: async () => scrollTo(5),
-		},
+		// {
+		// 	title: 'Pricing',
+		// 	action: async () => scrollTo(5),
+		// },
 		{
 			title: 'Contact',
 			action: async () => scrollTo(6),
@@ -52,7 +52,7 @@ export default function Navbar({ scrollTo }: { scrollTo: (index: number) => void
 				<NavigationLinks links={links} />
 				<Stack direction='row' spacing={1}>
 					<Button variant='outlined' sx={{ borderRadius: 8 }}>
-						Get started
+						COMING SOON
 					</Button>
 					<DarkModeToggle />
 				</Stack>

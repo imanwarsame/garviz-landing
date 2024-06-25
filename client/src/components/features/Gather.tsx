@@ -33,7 +33,7 @@ export default function Gather() {
 						Gather
 					</Typography>
 					<Typography sx={{ typography: { xs: 'caption', md: 'h6' } }}>
-						An intuitive platform to gather all the raw data for your team
+						An intuative platform to make the logging of raw data frictionless
 					</Typography>
 				</Stack>
 			</Box>

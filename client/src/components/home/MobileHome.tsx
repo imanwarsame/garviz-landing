@@ -124,7 +124,7 @@ export default function MobileHome() {
 						</Typography>
 					</Stack>
 				</Box>
-				<Pricing />
+				{/* <Pricing /> */}
 				<Box component='div' sx={{ background: 'transparent', backdropFilter: 'blur(3px)' }}>
 					<Contact />
 				</Box>

@@ -114,7 +114,7 @@ export default function Home() {
 				</ParallaxLayer>
 
 				{/* This is page 5*/}
-				<ParallaxLayer
+				{/* <ParallaxLayer
 					offset={4}
 					speed={0}
 					style={{
@@ -124,7 +124,7 @@ export default function Home() {
 					}}
 				>
 					<Pricing />
-				</ParallaxLayer>
+				</ParallaxLayer> */}
 
 				{/* This is page 6*/}
 				<ParallaxLayer

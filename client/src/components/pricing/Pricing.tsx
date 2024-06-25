@@ -56,10 +56,10 @@ export default function Pricing() {
 					<Button
 						variant='contained'
 						size='large'
-						onClick={() => console.log('Get started')}
+						onClick={() => console.log('')}
 						sx={{ borderRadius: 8, width: '100%' }}
 					>
-						Get started
+						COMING SOON
 					</Button>
 				</Grid>
 			</Grid>

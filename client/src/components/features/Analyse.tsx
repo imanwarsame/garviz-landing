@@ -33,7 +33,7 @@ export default function Analyse() {
 						Analyse
 					</Typography>
 					<Typography sx={{ typography: { xs: 'caption', md: 'h6' } }}>
-						Use our advanced analytics engine to take your team to the next level
+						Analyse your games and get your team to the next level
 					</Typography>
 				</Stack>
 			</Box>
