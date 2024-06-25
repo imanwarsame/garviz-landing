@@ -8,7 +8,7 @@ import Visualise from '../features/Visualise';
 // import VisualiseImage from '../../assets/Visualise.png';
 // import AnalyseImage from '../../assets/Analyse.png';
 import Analyse from '../features/Analyse';
-import Pricing from '../pricing/Pricing';
+//import Pricing from '../pricing/Pricing';
 import Contact from '../contact/Contact';
 import Navbar from '../navbar/Navbar';
 import GatherImage from '../features/GatherImage';

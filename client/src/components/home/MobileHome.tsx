@@ -3,7 +3,7 @@ import Landing from '../landing/Landing';
 import GatherImage from '../../assets/Gather.png';
 import VisualiseImage from '../../assets/Visualise.png';
 import AnalyseImage from '../../assets/Analyse.png';
-import Pricing from '../pricing/Pricing';
+//import Pricing from '../pricing/Pricing';
 import Contact from '../contact/Contact';
 import MobileNavbar from '../mobilenavbar/MobileNavbar';
 import Sparticles from '../particles/Sparticles';
